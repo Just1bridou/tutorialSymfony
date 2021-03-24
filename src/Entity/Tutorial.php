@@ -65,12 +65,18 @@ class Tutorial
      */
     private $bookmarks;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="tutorial", orphanRemoval=true)
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
         $this->scores = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->bookmarks = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -252,6 +258,36 @@ class Tutorial
             // set the owning side to null (unless already changed)
             if ($bookmark->getTutorial() === $this) {
                 $bookmark->setTutorial(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setTutorial($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getTutorial() === $this) {
+                $comment->setTutorial(null);
             }
         }
 
