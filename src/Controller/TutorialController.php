@@ -56,7 +56,7 @@ class TutorialController extends AbstractController
             $manager->persist($tutorial);
             $manager->flush();
     
-            return $this->redirectToRoute('tutorial');
+            return $this->redirectToRoute('tutorial_list');
         }
 
         return $this->render('tutorial/edit.html.twig', [
