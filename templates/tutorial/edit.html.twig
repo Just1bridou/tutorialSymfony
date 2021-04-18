@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tutoriels{% endblock %}
+
+{% block body %}
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Les tutoriels</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                {{ form_start(tutorialForm) }}
+                <div class="row">
+                    <div class="col-md-8">
+                        {{ form_row(tutorialForm.title) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(tutorialForm.isPublished) }}
+                    </div>
+                </div>
+                <div class="row">
+                    {{ form_row(tutorialForm.content) }}
+                </div>
+                {{ form_end(tutorialForm) }}
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('tutorial_list') }}" class="link-create">Retour</a>
+{% endblock %}
