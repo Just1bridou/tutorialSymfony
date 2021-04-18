@@ -15,12 +15,14 @@
                     <thead>
                         <tr>
                             <th>Titres</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for tutorial in tutorials %}
                         <tr>
                             <td>{{ tutorial.title|raw }}</td>
+                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">Modifier</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

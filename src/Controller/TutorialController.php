@@ -63,4 +63,30 @@ class TutorialController extends AbstractController
             'tutorialForm' => $tutorialForm->createView(),
         ]);
     }
+
+    #[Route('/edit/{id}', name: 'edit')]
+    /**
+     * Modifie un tutoriel
+     * 
+     * @param Tutorial      $tutorial
+     * @param Request       $request
+     * 
+     * @return Response
+     */
+    public function edit(Tutorial $tutorial, Request $request): Response
+    {
+        $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
+
+        $tutorialForm->handleRequest($request);
+        if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->flush();
+    
+            return $this->redirectToRoute('tutorial_list');
+        }
+    
+        return $this->render('tutorial/edit.html.twig', [
+            'tutorialForm' => $tutorialForm->createView(),
+        ]);
+    }
 }
