@@ -1,0 +1,100 @@
+<style>
+
+    *{
+        outline: none;
+    }
+
+    .background{
+        background: linear-gradient(90deg, rgba(106,129,242,1) 0%, rgba(56,20,158,1) 100%);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        z-index: -1;
+    }
+
+    .navBackground {
+        background-color: rgba(46,46,46,0.13);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .searchBarContent {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoContent {
+        flex: 1;
+    }
+
+    .searchBar {
+        background-color: rgba(255,255,255,0.7);
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 100px;
+        font-size: 25px;
+        width: 100%;
+        position: relative;
+    }
+
+    .searchBar button {
+        position: absolute;
+        right: 0;
+    }
+
+    .menu {
+        flex: 1;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .cat {
+        color: white;
+        font-size: 23px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .cat:hover {
+        color: #b7b7b7;
+        text-decoration: none;
+    }
+
+</style>
+
+<header>
+    <nav class="navBackground">
+
+        <div class="logoContent">
+            <a class="cat" href="/">TutoName</a>
+        </div>
+
+        <div class="searchBarContent m-3">
+            <form class="searchBar" action="#" method="post">
+                <input name="search" class="bg-transparent border-0 w-100" placeholder="Search"/>
+
+                <button type="submit" class="border-0 bg-transparent">
+                    <i class="fas fa-search"></i>
+                </button>
+
+            </form>
+        </div>
+
+        <div class="menu">
+            <a class="cat" href="#">Categories</a>
+            <a class="cat" href="#">Mon compte</a>
+        </div>
+
+    </nav>
+</header>

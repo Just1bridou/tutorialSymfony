@@ -19,6 +19,20 @@ class TutorialRepository extends ServiceEntityRepository
         parent::__construct($registry, Tutorial::class);
     }
 
+    public function randomsTutorials(): array
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t')
+          //  ->leftJoin('p.comments', 'c')
+         //   ->join('p.author', 'a')
+         //   ->where('a.id = ' . $idUser)
+          //  ->groupBy('p.title, p.content')
+            ->orderBy('t.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Tutorial[] Returns an array of Tutorial objects
     //  */

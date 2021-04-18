@@ -25,7 +25,8 @@ class TutorialCrudController extends AbstractCrudController
             TextEditorField::new('content'),
             BooleanField::new('isPublished'),
             BooleanField::new('isDeleted'),
-            AssociationField::new('author')
+            AssociationField::new('author'),
+            AssociationField::new('category')
         ];
     }
 
