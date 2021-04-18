@@ -13,8 +13,11 @@
             <div class="card-body">
                 {{ form_start(tutorialForm) }}
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         {{ form_row(tutorialForm.title) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(tutorialForm.category) }}
                     </div>
                     <div class="col-md-4">
                         {{ form_row(tutorialForm.isPublished) }}

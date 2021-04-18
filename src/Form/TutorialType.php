@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Tutorial;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,6 +34,14 @@ class TutorialType extends AbstractType
                 ],
                 'expanded' => true,
                 'attr' => ['class' => 'form-check form-control'],
+            ])
+            ->add('category', EntityType::class, [
+                'label' => 'Catégorie',
+                'class' => Category::class,
+                'choice_label' => function (Category $category) {
+                    return $category->getContent();
+                },
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',

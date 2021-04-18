@@ -47,6 +47,7 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            //@TODO: configurer le système de mail
             // generate a signed url and email it to the user
             // $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
             //     (new TemplatedEmail())
