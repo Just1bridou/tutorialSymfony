@@ -50,7 +50,7 @@ class TutorialController extends AbstractController
         $tutorialForm->handleRequest($request);
         if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
             $tutorial->setIsDeleted(false);
-            $tutorial->setUser($security->getUser());
+            $tutorial->setAuthor($security->getUser());
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($tutorial);

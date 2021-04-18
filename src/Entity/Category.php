@@ -29,6 +29,16 @@ class Category
      */
     private $categoryParent;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Tutorial::class, mappedBy="category")
+     */
+    private $tutorials;
+
+    public function __construct()
+    {
+        $this->tutorials = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +64,36 @@ class Category
     public function setCategoryParent(?self $categoryParent): self
     {
         $this->categoryParent = $categoryParent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tutorial[]
+     */
+    public function getTutorials(): Collection
+    {
+        return $this->tutorials;
+    }
+
+    public function addTutorial(Tutorial $tutorial): self
+    {
+        if (!$this->tutorials->contains($tutorial)) {
+            $this->tutorials[] = $tutorial;
+            $tutorial->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTutorial(Tutorial $tutorial): self
+    {
+        if ($this->tutorials->removeElement($tutorial)) {
+            // set the owning side to null (unless already changed)
+            if ($tutorial->getCategory() === $this) {
+                $tutorial->setCategory(null);
+            }
+        }
 
         return $this;
     }
