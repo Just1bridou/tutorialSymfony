@@ -46,7 +46,7 @@ class Tutorial
     private $isDeleted;
 
     /**
-     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="tutorial", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="tutorial", orphanRemoval=true, cascade={"persist"})
      */
     private $questions;
 

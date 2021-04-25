@@ -3,6 +3,7 @@
 {% block title %}Tutoriels{% endblock %}
 
 {% block body %}
+{{ form_start(tutorialForm) }}
     <div class="col-xl-12 col-md-8">
         <div class="card card-default card-shadow">
             <div class="card-header">
@@ -11,7 +12,6 @@
                 </div>
             </div>
             <div class="card-body">
-                {{ form_start(tutorialForm) }}
                 <div class="row">
                     <div class="col-md-4">
                         {{ form_row(tutorialForm.title) }}
@@ -26,10 +26,55 @@
                 <div class="row">
                     {{ form_row(tutorialForm.content) }}
                 </div>
-                {{ form_end(tutorialForm) }}
             </div>
         </div>
     </div>
 
-    <a href="{{ path('tutorial_list') }}" class="link-create">Retour</a>
+<div class="row">
+    <div class="col-xl-8 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Les questions</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="questions" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
+                {% for question in tutorialForm.questions %}
+                    <div class="row question-type">
+                        <div class="col-md-10">{{ form_row(question.content) }}</div>
+                        <div class="col-md-2">{{ form_row(question.position) }}</div>
+                    </div>
+                {% endfor %}
+                </div>
+                <button type="button" class="add_item_link btn btn-primary" data-collection-holder-class="questions">Ajouter une question</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Options</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="md-col-6">
+                        {{ form_row(tutorialForm.submit) }}
+                    </div>
+                    <div class="md-col-6">
+                        <a href="{{ path('tutorial_list') }}" class="link-create">Retour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(tutorialForm) }}
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/question-form-manager.js') }}"></script>
+{% endblock javascripts %}
