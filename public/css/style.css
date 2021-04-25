@@ -1,0 +1,189 @@
+*{
+    outline: none;
+}
+
+.background{
+    background: linear-gradient(90deg, rgba(106,129,242,1) 0%, rgba(56,20,158,1) 100%);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+
+.navBackground {
+    background-color: rgba(46,46,46,0.13);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.searchBarContent {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logoContent {
+    flex: 1;
+}
+
+.searchBar {
+    background-color: rgba(255,255,255,0.7);
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px;
+    font-size: 25px;
+    width: 100%;
+    position: relative;
+}
+
+.searchBar button {
+    position: absolute;
+    right: 10px;
+}
+
+.menu {
+    flex: 1;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cat {
+    color: white;
+    font-size: 23px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cat:hover {
+    color: #b7b7b7;
+    text-decoration: none;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    padding:35px;
+    margin-top: 50px;
+}
+
+.secondContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.secondContent>div {
+    flex: 1;
+    text-align: center;
+}
+
+.secondContent>div>h3 {
+    flex: 1;
+    margin-bottom: 30px;
+}
+
+.secondContent>div>a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 50px 10px 50px;
+    border-radius: 100px;
+    transition: 0.2s all ease-in-out;
+    font-size: 23px;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.secondContent>div>a:hover {
+    filter: brightness(80%);
+}
+
+.elementCase {
+    background-color: white;
+    padding: 30px;
+    margin: 15px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.elementCase .searchBar {
+    background-color: rgb(208 208 208 / 70%);
+}
+
+.createTutorial a {
+    background-color: #6597ff;
+}
+
+.viewCategory a {
+    background-color: #b265ff;
+}
+
+.tutorialsContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: auto;
+}
+
+.tutorialCard {
+    flex: 0 0 40%;
+    margin: 10px;
+    background-color: #6f42c1;
+    transition: 0.1s all ease-in-out;
+    height: 200px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.tutorialCard:hover {
+    filter: brightness(50%);
+}
+
+.tutorialCard .title {
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    padding: 20px 5px 20px 5px;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    font-size: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tutorialCard .tutoCategory {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    transform: translateY(-50%);
+    background-color: #4408b1;
+    padding: 5px 10px 5px 10px;
+    border-radius: 100px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    box-shadow: 4px 2px 17px 0px rgb(0 0 0 / 48%);
+}
+
+.customCaseSearch {
+    background-color: rgb(208 208 208 / 70%);
+}

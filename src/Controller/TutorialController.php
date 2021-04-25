@@ -29,7 +29,22 @@ class TutorialController extends AbstractController
     public function index(TutorialRepository $tutorialRepository): Response
     {
         return $this->render('tutorial/index.html.twig', [
-            'tutorials' => $tutorialRepository->findAll(),
+            'tutorials' => $tutorialRepository->tenLastsTutorials(),
+        ]);
+    }
+
+    #[Route('/{id}', name: 'view_tutorial')]
+    /**
+     * Voir un tutoriel
+     *
+     * @param Tutorial      $tutorial
+     *
+     * @return Response
+     */
+    public function view(Tutorial $tutorial): Response
+    {
+        return $this->render('tutorial/view.html.twig', [
+            'tutorial' => $tutorial,
         ]);
     }
 

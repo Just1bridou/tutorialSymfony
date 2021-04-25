@@ -3,33 +3,63 @@
 {% block title %}Tutoriels{% endblock %}
 
 {% block body %}
-    <div class="col-xl-12 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>Les tutoriels</h2>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Titres</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for tutorial in tutorials %}
-                        <tr>
-                            <td>{{ tutorial.title|raw }}</td>
-                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">Modifier</a></td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 
-    <a href="{{ path('tutorial_create') }}" class="link-create">Créer un tutoriel</a>
+    <section class="mainContent">
+
+        <section class="secondContent elementCase">
+
+            <h2 class="text-center p-3 text-uppercase">Les 10 derniers tutoriels</h2>
+
+            <div class="tutorialsContent">
+
+            {% for tutorial in tutorials %}
+
+                {% if tutorial.isPublished == true and tutorial.isDeleted == false  %}
+
+                    <div class="card tutorialCard">
+                        <div class="tutoCategory">{{ tutorial.category }}</div>
+                        <div class="title">{{ tutorial.title }}</div>
+                        <a href="/tutorial/{{ tutorial.id }}" class="stretched-link"></a>
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+            </div>
+
+        </section>
+
+        <section class="secondContent">
+
+            <div class="elementCase">
+                <h3>Vous cherchez un tutoriel en particulier ?</h3>
+
+                <div class="searchBarContent m-3">
+                    <form class="searchBar customCaseSearch" action="#" method="post">
+                        <input name="search" class="bg-transparent border-0 w-100" placeholder="Search"/>
+
+                        <button type="submit" class="border-0 bg-transparent">
+                            <i class="fas fa-search"></i>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="elementCase createTutorial">
+                <h3>Envie de partager votre savoir ?</h3>
+                <a href="{{ path('tutorial_create') }}">Créer un tutoriel !</a>
+            </div>
+
+            <div class="elementCase viewCategory">
+                <h3>Vous voulez voir nos autres tutoriels ?</h3>
+                <a href="#">Voir les catégories</a>
+            </div>
+
+        </section>
+
+    </section>
+
 {% endblock %}

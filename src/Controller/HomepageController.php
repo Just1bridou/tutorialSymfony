@@ -17,8 +17,6 @@ class HomepageController extends AbstractController
     {
         $tutorials = $this->entityManager->getRepository(Tutorial::class);
 
-        return $this->render('homepage/index.html.twig', [
-            'tutos' => $tutorials->randomsTutorials(),
-        ]);
+        return $this->render('homepage/index.html.twig');
     }
 }
