@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Les tutoriels</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Titres</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for tutorial in tutorials %}
+                        <tr>
+                            <td>{{ tutorial.title|raw }}</td>
+                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">Modifier</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

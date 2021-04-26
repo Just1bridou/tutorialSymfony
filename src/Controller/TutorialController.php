@@ -15,7 +15,6 @@ use Symfony\Component\Security\Core\Security;
  * Class TutorialController
  * @Route("/tutorial", name="tutorial_")
  */
-
 class TutorialController extends AbstractController
 {
     #[Route('/', name: 'list')]
@@ -30,21 +29,6 @@ class TutorialController extends AbstractController
     {
         return $this->render('tutorial/index.html.twig', [
             'tutorials' => $tutorialRepository->tenLastsTutorials(),
-        ]);
-    }
-
-    #[Route('/{id}', name: 'view_tutorial')]
-    /**
-     * Voir un tutoriel
-     *
-     * @param Tutorial      $tutorial
-     *
-     * @return Response
-     */
-    public function view(Tutorial $tutorial): Response
-    {
-        return $this->render('tutorial/view.html.twig', [
-            'tutorial' => $tutorial,
         ]);
     }
 
@@ -102,6 +86,21 @@ class TutorialController extends AbstractController
     
         return $this->render('tutorial/edit.html.twig', [
             'tutorialForm' => $tutorialForm->createView(),
+        ]);
+    }
+
+    #[Route('/{id}', name: 'view_tutorial')]
+    /**
+     * Voir un tutoriel
+     *
+     * @param Tutorial      $tutorial
+     *
+     * @return Response
+     */
+    public function view(Tutorial $tutorial): Response
+    {
+        return $this->render('tutorial/view.html.twig', [
+            'tutorial' => $tutorial,
         ]);
     }
 }
