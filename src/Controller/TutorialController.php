@@ -33,21 +33,6 @@ class TutorialController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'view_tutorial')]
-    /**
-     * Voir un tutoriel
-     *
-     * @param Tutorial      $tutorial
-     *
-     * @return Response
-     */
-    public function view(Tutorial $tutorial): Response
-    {
-        return $this->render('tutorial/view.html.twig', [
-            'tutorial' => $tutorial,
-        ]);
-    }
-
     #[Route('/create', name: 'create')]
     /**
      * Crée un tutoriel
@@ -102,6 +87,21 @@ class TutorialController extends AbstractController
     
         return $this->render('tutorial/edit.html.twig', [
             'tutorialForm' => $tutorialForm->createView(),
+        ]);
+    }
+
+    #[Route('/{id}', name: 'view_tutorial')]
+    /**
+     * Voir un tutoriel
+     *
+     * @param Tutorial      $tutorial
+     *
+     * @return Response
+     */
+    public function view(Tutorial $tutorial): Response
+    {
+        return $this->render('tutorial/view.html.twig', [
+            'tutorial' => $tutorial,
         ]);
     }
 }

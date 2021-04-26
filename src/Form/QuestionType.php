@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Question;
+use App\Form\AnswerType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -22,6 +24,13 @@ class QuestionType extends AbstractType
                 'label' => 'Question',
                 'attr' => ['class' => 'form-control'],
             ])
+            ->add('answers', CollectionType::class, [
+                'entry_type' => AnswerType::class,
+                'entry_options' => ['label' => false],
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+            ]);
         ;
     }
 

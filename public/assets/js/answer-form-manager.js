@@ -1,25 +1,23 @@
 jQuery(document).ready(function() {
-    // Toutes les questions
-    var $questionsCollectionHolder = $('div.questions');
+    // Get the ul that holds the collection of tags
+    var $tagsCollectionHolder = $('div.answers');
     // count the current form inputs we have (e.g. 2), use that as the new
     // index when inserting a new item (e.g. 2)
-    $questionsCollectionHolder.data('index', $questionsCollectionHolder.find('input').length);
+    $tagsCollectionHolder.data('index', $tagsCollectionHolder.find('input').length);
 
-    // Ajout un bouton "supprimer" pour chaque question
-    $questionsCollectionHolder.find('.question-type').each(function() {
+    // Get the ul that holds the collection of tags
+    $collectionHolder = $('div.answers');
+    // add a delete link to all of the existing tag form li elements
+    $collectionHolder.find('.answer-type').each(function() {
         addTagFormDeleteLink($(this));
     });
 
-    //Ajoute un formuaire de Question lorsqu'on clique sur le bouton
-    $('body').on('click', '.add_question_link', function(e) {
+    $('body').on('click', '.add_answer_link', function(e) {
         var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
+        // add a new tag form (see next code block)
         addFormToCollection($collectionHolderClass);
     })
 
-    /**
-     * Ajout un formulaire de Question
-     * @param {*} $collectionHolderClass 
-     */
     function addFormToCollection($collectionHolderClass) {
         // Get the ul that holds the collection of tags
         var $collectionHolder = $('.' + $collectionHolderClass);
@@ -47,13 +45,10 @@ jQuery(document).ready(function() {
         var $newFormLi = $('<li></li>').append(newForm);
         // Add the new form at the end of the list
         $collectionHolder.append($newFormLi)
-    
-        // add a delete link to the new form
-        addTagFormDeleteLink($newFormLi);
     }
     
     function addTagFormDeleteLink($tagFormLi) {
-        var $removeFormButton = $('<button type="button" class="btn btn-primary">Supprimer la question</button>');
+        var $removeFormButton = $('<button type="button" class="btn btn-primary">Supprimer cette réponse</button>');
         $tagFormLi.append($removeFormButton);
     
         $removeFormButton.on('click', function(e) {
