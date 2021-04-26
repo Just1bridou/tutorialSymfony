@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
@@ -30,6 +31,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('address'),
             DateField::new('birthday'),
             BooleanField::new('is_banned'),
+            ArrayField::new("roles")
         ];
     }
 
