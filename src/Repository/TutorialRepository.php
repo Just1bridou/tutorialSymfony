@@ -29,6 +29,16 @@ class TutorialRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function searchTutorial($keyword): array
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t')
+            ->where('t.title LIKE :key')
+            ->setParameter('key' , '%'.$keyword.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Tutorial[] Returns an array of Tutorial objects
     //  */

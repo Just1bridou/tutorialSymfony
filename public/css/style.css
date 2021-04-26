@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "robotoBold";
+    src: url("../fonts/Roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "avenirBold";
+    src: url("../fonts/AVENIR/AvenirNextLTPro-Bold.otf");
+}
+
 *{
     outline: none;
 }
@@ -8,11 +18,12 @@
     width: 100%;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     margin: 0;
     padding: 0;
     z-index: -1;
 }
+/* NAVIGATION */
 
 .navBackground {
     background-color: rgba(46,46,46,0.13);
@@ -68,6 +79,108 @@ nav {
     color: #b7b7b7;
     text-decoration: none;
 }
+
+/* HOMEPAGE */
+
+.homePageTitle{
+    text-align: center;
+    color: gold;
+    font-size: 100px;
+    display: flex;
+    flex-direction: column;
+    font-family: "avenirBold";
+    margin-top: 50px;
+}
+
+.homePageTitle .siteName {
+    color: white;
+}
+
+.homePagePathContent {
+    padding: 50px;
+    margin-top: 150px;
+    padding-bottom: 600px;
+}
+
+.homePageBlocText {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.iconHomePage {
+    font-size: 80px;
+    color: gold;
+    margin-right: -60px;
+}
+
+.iconHomePageCrown {
+    font-size: 80px;
+    color: gold;
+}
+
+.firstSVG {
+    position: relative;
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    margin: 30px 0 30px 0;
+}
+
+.secondSVG {
+    position: relative;
+    width: 20%;
+    left: 50%;
+    height: auto;
+    margin: 40px 0 40px 0;
+}
+
+.homePagePrincipalText {
+    font-size: 70px;
+    color: black;
+    font-family: "avenirBold";
+}
+
+.whiteText {
+    color: white;
+}
+
+.goldText {
+    color: gold;
+}
+
+.transparentText {
+    font-size: 40px;
+    color: white;
+    font-family: "avenirBold";
+    opacity: 0.6;
+    font-style: italic;
+}
+
+.homePageButton {
+    color: white;
+    border: 8px solid gold;
+    font-size: 60px;
+    border-radius: 100px;
+    padding: 30px 80px 30px 80px;
+    font-family: "avenirBold";
+    text-decoration: none;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: 0.1s all ease-in-out;
+}
+
+.homePageButton:hover {
+    color: white;
+    filter: brightness(60%);
+}
+
+/* TUTORIAL PAGE */
 
 .mainContent {
     display: flex;
