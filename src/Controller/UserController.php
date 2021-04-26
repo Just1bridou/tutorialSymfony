@@ -46,6 +46,8 @@ class UserController extends AbstractController
      */
     public function show_tutorials(User $user, Security $security, TutorialRepository $tutorialRepository): Response
     {
+        $this->denyAccessUnlessGranted('tuto_dashboard', $user);
+
         return $this->render('user/my_tutorials.html.twig', [
             'tutorials' => $tutorialRepository->findBy(['author' => $user]),
         ]);
