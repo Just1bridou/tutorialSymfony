@@ -8,6 +8,11 @@
     src: url("../fonts/AVENIR/AvenirNextLTPro-Bold.otf");
 }
 
+@font-face {
+    font-family: "avenirCn";
+    src: url("../fonts/AVENIR/AvenirNextLTPro-Cn.otf");
+}
+
 *{
     outline: none;
 }
@@ -299,4 +304,24 @@ nav {
 
 .customCaseSearch {
     background-color: rgb(208 208 208 / 70%);
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #505050;
+    padding-bottom: 200px;
+    margin-top: 200px;
+    color: white;
+    font-family: "avenirCn";
+    position: relative;
+}
+
+footer div {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    position: absolute;
+    transform: translate(50px, -50%);
 }
