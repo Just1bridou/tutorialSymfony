@@ -88,7 +88,7 @@ class TutorialController extends AbstractController
             'tutorialForm' => $tutorialForm->createView(),
         ]);
     }
-
+ 
     #[Route('/{id}', name: 'view_tutorial')]
     /**
      * Voir un tutoriel

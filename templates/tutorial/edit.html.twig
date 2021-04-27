@@ -4,31 +4,18 @@
 
 {% block body %}
 {{ form_start(tutorialForm) }}
-    <div class="col-xl-12 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>Les tutoriels</h2>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        {{ form_row(tutorialForm.title) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_row(tutorialForm.category) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_row(tutorialForm.isPublished) }}
-                    </div>
-                </div>
-                <div class="row">
-                    {{ form_row(tutorialForm.content) }}
-                </div>
-            </div>
-        </div>
+<div>
+    <div class="column TutoEditChoixContainer">
+        <h2 id="TutoEditTitle" >Nouveau tutoriel</h2>
+        <div class="TutoEditTitle">{{ form_row(tutorialForm.title)}}</div>
+        <div class="TutoEditSelect">{{ form_row(tutorialForm.category) }}</div>
+        <div class="TutoEditisPublished">{{ form_row(tutorialForm.isPublished) }}</div>
     </div>
+
+    <div class="TutoEditMd">Writing in Markdown is possible in this form, have fun: <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Tuto Markdown</a></div>
+    <div class="TutoEditForm">{{ form_row(tutorialForm.content) }}</div>
+</div>
+
 
 <div class="row">
     <div class="col-xl-8 col-md-8">

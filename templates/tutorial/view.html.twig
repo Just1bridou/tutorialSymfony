@@ -3,5 +3,15 @@
 {% block title %}Tutoriels{% endblock %}
 
 {% block body %}
-    <h1 class="display-1">{{ tutorial.title }}</h1>
+    <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
+    <h4 id="TutoViewAuthor" > Author : {{ tutorial.author }}</h4>
+
+    <section class="TutoViewSection"> 
+
+        {% apply markdown_to_html %}
+            {{ tutorial.content }}     
+        {% endapply %}
+    </section>
+
+
 {% endblock %}
