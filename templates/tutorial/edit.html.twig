@@ -27,14 +27,26 @@
             </div>
             <div class="card-body">
                 <div class="questions" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
+
                 {% for question in tutorialForm.questions %}
                     <div class="row question-type">
                         <div class="col-md-10">{{ form_row(question.content) }}</div>
                         <div class="col-md-2">{{ form_row(question.position) }}</div>
+
+                        <div class="answers" data-prototype="{{ form_widget(question.answers.vars.prototype)|e('html_attr') }}">
+                        {% for answer in question.answers %}
+                            <div class="row answer-type">
+                                <div class="col-md-10">{{ form_row(answer.content) }}</div>
+                                <div class="col-md-2">{{ form_row(answer.isCorrect) }}</div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">Ajouter une réponse</button>
                     </div>
                 {% endfor %}
+
                 </div>
-                <button type="button" class="add_item_link btn btn-primary" data-collection-holder-class="questions">Ajouter une question</button>
+
             </div>
         </div>
     </div>
@@ -64,4 +76,5 @@
 
 {% block javascripts %}
     <script src="{{ asset('assets/js/question-form-manager.js') }}"></script>
+    <script src="{{ asset('assets/js/answer-form-manager.js') }}"></script>
 {% endblock javascripts %}
