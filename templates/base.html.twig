@@ -9,8 +9,6 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         <link href="/css/style.css" rel="stylesheet"/>
-
-        <script src="{{ asset('assets/lib/jquery.min.js') }}"></script>
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
@@ -22,7 +20,9 @@
 
         <div class="background"></div>
         {% block body %}{% endblock %}
+
     </body>
 
     {% include 'static/footer.html.twig' %}
+
 </html>
