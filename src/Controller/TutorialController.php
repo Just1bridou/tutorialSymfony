@@ -132,4 +132,18 @@ class TutorialController extends AbstractController
             'tutorial' => $tutorial,
         ]);
     }
+
+    #[Route('/quizz/response', name: 'response_tutorial')]
+    /**
+     * Reponse d'ajax
+     *
+     * @param Request   $request
+     *
+     * @return Response
+     */
+    public function quizzResponse(Request $request): Response
+    {
+        dd($request);
+        return $this->render('homepage/index.html.twig');
+    }
 }

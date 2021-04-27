@@ -13,24 +13,30 @@
                     <h2>Les questions</h2>
                 </div>
             </div>
-            <div class="card-body">
+            <form class="card-body quizzForm" tuto-id={{ tutorial.id }}>
                 {% for question in tutorial.questions %}
                     <div class="row question-type">
-                        <div class="col-md-10">{{ question.content }}</div>
+                        <div class="questionName col-md-10" id="{{ question.id }}">{{ question.content }}</div>
                         {% for answer in question.answers %}
-                            <div class="row answer-type">
-                                <div class="col-md-8">{{ answer.content }}</div>
+                            <div class="answer row answer-type">
+                                <div class="answerName col-md-8">{{ answer.content }}</div>
                                 <div class="col-md-4">
-                                    <input type="checkbox" id="q{{ question.id }}-a{{ answer.id }}" name="q{{ question.id }}-a{{ answer.id }}" value="">
+                                    <input class="answerValue" type="checkbox" id="{{ answer.id }}" name="{{ answer.id }}">
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
                 {% endfor %}
-                </div>
-                <input type="submit" value="Enregistrer mes réponses">
+            </form>
+                <input class="submitQuizz" type="submit" value="Enregistrer mes réponses">
             </div>
         </div>
     </div>
+
+    {% block javascript %}
+        <script src="{{ asset('assets/js/quizz.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+        <script src="{{ asset('assets/js/ajax.js') }}"></script>
+    {% endblock javascript %}
 
 {% endblock %}
