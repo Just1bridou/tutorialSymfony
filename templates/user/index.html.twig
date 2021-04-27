@@ -3,5 +3,6 @@
 {% block body %}
     <h1>{{ user.username }}</h1>
     <a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">Mes tutoriels</a>
+    <a href="{{ path('app_logout') }}">Se déconnecter</a>
 
 {% endblock %}
