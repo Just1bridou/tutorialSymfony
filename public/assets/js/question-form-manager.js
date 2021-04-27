@@ -1,64 +1,125 @@
-jQuery(document).ready(function() {
-    // Toutes les questions
-    var $questionsCollectionHolder = $('div.questions');
-    // count the current form inputs we have (e.g. 2), use that as the new
-    // index when inserting a new item (e.g. 2)
-    $questionsCollectionHolder.data('index', $questionsCollectionHolder.find('input').length);
+document.addEventListener('DOMContentLoaded',() => {
 
-    // Ajout un bouton "supprimer" pour chaque question
-    $questionsCollectionHolder.find('.question-type').each(function() {
-        addTagFormDeleteLink($(this));
-    });
+    var questionsCollectionHolder = document.querySelector('.questions')
 
-    //Ajoute un formuaire de Question lorsqu'on clique sur le bouton
-    $('body').on('click', '.add_question_link', function(e) {
-        var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
-        addFormToCollection($collectionHolderClass);
+    // Add New Question Button
+    var addQuestionButton = _('button', questionsCollectionHolder, "Ajouter une question", null, "addQuestionButton")
+
+    // Set Index to questionsCollectionHolder
+    setNewIndex(questionsCollectionHolder)
+
+    addQuestionButton.addEventListener('click', () => {
+        
+        var prototype = questionsCollectionHolder.getAttribute('data-prototype')
+        prototype = setNewIndex(questionsCollectionHolder, prototype)
+
+        questionsCollectionHolder.insertAdjacentHTML( 'beforeend', prototype );
+        
+        let divs = questionsCollectionHolder.querySelectorAll('div')
+        let last = divs[divs.length-1]
+
+        addNewAnswer(last, questionsCollectionHolder.getAttribute('data-index'))
+    })
+})
+
+function addNewAnswer(elem, questionIndex) {
+
+    let addAnswerButton = _('button', elem.parentNode, "Ajouter une réponse", null, "addAnswerButton")
+    addAnswerButton.addEventListener('click', () => {
+
+       setNewIndex(elem)
+       createResponseForm(elem, questionIndex)
     })
 
-    /**
-     * Ajout un formulaire de Question
-     * @param {*} $collectionHolderClass 
-     */
-    function addFormToCollection($collectionHolderClass) {
-        // Get the ul that holds the collection of tags
-        var $collectionHolder = $('.' + $collectionHolderClass);
-    
-        // Get the data-prototype explained earlier
-        var prototype = $collectionHolder.data('prototype');
-    
-        // get the new index
-        var index = $collectionHolder.data('index');
-    
-        var newForm = prototype;
-        // You need this only if you didn't set 'label' => false in your tags field in TaskType
-        // Replace '__name__label__' in the prototype's HTML to
-        // instead be a number based on how many items we have
-        // newForm = newForm.replace(/__name__label__/g, index);
-    
-        // Replace '__name__' in the prototype's HTML to
-        // instead be a number based on how many items we have
-        newForm = newForm.replace(/__name__/g, index);
-    
-        // increase the index with one for the next item
-        $collectionHolder.data('index', index + 1);
-    
-        // Display the form in the page in an li, before the "Add a tag" link li
-        var $newFormLi = $('<li></li>').append(newForm);
-        // Add the new form at the end of the list
-        $collectionHolder.append($newFormLi)
-    
-        // add a delete link to the new form
-        addTagFormDeleteLink($newFormLi);
+   createResponseForm(elem, questionIndex)
+
+}
+
+function createResponseForm(elem, questionIndex) {
+
+    let totalForm = _('div', elem, null, "tutorial_questions_" + questionIndex + "_answers_"+ elem.getAttribute('data-index'))
+    totalForm.style.margin = "30px"
+    totalForm.style.padding = "30px"
+    totalForm.style.backgroundColor = "red"
+
+    // ANSWER TYPE
+    let formInput = _('div', totalForm)
+
+    let labelInput = _('label', formInput, "Réponse", null, "required")
+    labelInput.setAttribute('for', 'tutorial_questions_' + questionIndex + '_answers_'+ elem.getAttribute('data-index') +'_content')
+
+    let inputAnswer = _('input', formInput, null, 'tutorial_questions_' + questionIndex + '_answers_'+ elem.getAttribute('data-index') +'_content', "form-control")
+    inputAnswer.type = "text"
+    inputAnswer.name = "tutorial[questions][" + questionIndex + "][answers]["+ elem.getAttribute('data-index') +"][content]"
+    inputAnswer.required = true
+
+    let formCheckbox = _('div', totalForm)
+
+    // ANSWER CORRECT ?
+    let labelCorrectAnswer = _('label', formCheckbox, "Réponse correcte ?", null, "required")
+
+    let radioDiv = _('div', formCheckbox, null, "tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect", "form-check")
+    radioDiv.classList.add('form-control')
+
+    // RADIO BUTTONS
+    // YES
+    let inputYes = _('input', radioDiv, null, 'tutorial_questions_' + questionIndex + '_answers_' + elem.getAttribute('data-index') + '_isCorrect_0', null)
+    inputYes.type = "radio"
+    inputYes.name = "tutorial[questions][" + questionIndex + "][answers][" + elem.getAttribute('data-index') + "][isCorrect]"
+    inputYes.required = true
+    inputYes.value = 1
+
+    let labelYes = _('label', radioDiv, "Oui", null, "required")
+    labelYes.for = "tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect_0"
+
+    // NO
+    let inputNo = _('input', radioDiv, null, 'tutorial_questions_' + questionIndex + '_answers_' + elem.getAttribute('data-index') + '_isCorrect_1', null)
+    inputNo.type = "radio"
+    inputNo.name = "tutorial[questions][" + questionIndex + "][answers][" + elem.getAttribute('data-index') + "][isCorrect]"
+    inputNo.required = true
+    inputNo.value = 0
+
+    let labelNo = _('label', radioDiv, "Non", null, "required")
+    labelNo.for = "tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect_1"
+ 
+
+    let removeButton = _('button', totalForm, "Supprimer cette réponse", null, "removeAnswerButton")
+
+    removeButton.addEventListener('click', () => {
+        totalForm.remove()
+    })
+}
+
+/**
+ * Set / increment index (position of question for PHP)
+ * @param {Element} elem 
+ */
+ function setNewIndex(elem, proto = null) {
+    let index = elem.getAttribute('data-index')
+
+    if(index == null) {
+        elem.setAttribute('data-index', 0)
+    } else {
+        let newIndex = parseInt(index) + 1
+        elem.setAttribute('data-index', newIndex)
     }
-    
-    function addTagFormDeleteLink($tagFormLi) {
-        var $removeFormButton = $('<button type="button" class="btn btn-primary">Supprimer la question</button>');
-        $tagFormLi.append($removeFormButton);
-    
-        $removeFormButton.on('click', function(e) {
-            // remove the li for the tag form
-            $tagFormLi.remove();
-        });
+
+    if(proto != null) {
+        let ni = elem.getAttribute('data-index')
+        proto = proto.replace(/__name__label__/g, ni);
+        proto = proto.replace(/__name__/g, ni);
+        return proto
     }
-});
+}
+
+function _(tag, parent, text=null,  id=null, classs=null) {
+	let element = document.createElement(tag)
+	if (text)
+		element.appendChild(document.createTextNode(text))
+	parent.appendChild(element)
+	if (id)
+		element.id = id
+	if (classs)
+		element.classList.add(classs)
+	return element
+}

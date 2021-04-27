@@ -40,6 +40,7 @@
             </div>
             <div class="card-body">
                 <div class="questions" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
+
                 {% for question in tutorialForm.questions %}
                     <div class="row question-type">
                         <div class="col-md-10">{{ form_row(question.content) }}</div>
@@ -56,8 +57,9 @@
                         <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">Ajouter une réponse</button>
                     </div>
                 {% endfor %}
+
                 </div>
-                <button type="button" class="add_question_link btn btn-primary" data-collection-holder-class="questions">Ajouter une question</button>
+
             </div>
         </div>
     </div>
