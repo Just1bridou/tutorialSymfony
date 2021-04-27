@@ -75,6 +75,7 @@ class TutorialController extends AbstractController
      */
     public function edit(Tutorial $tutorial, Request $request): Response
     {
+        $this->denyAccessUnlessGranted('tuto_edit', $tutorial->getAuthor());
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
 
         $tutorialForm->handleRequest($request);
