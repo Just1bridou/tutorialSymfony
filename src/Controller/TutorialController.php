@@ -106,4 +106,30 @@ class TutorialController extends AbstractController
             'tutorial' => $tutorial,
         ]);
     }
+
+    #[Route('/quiz/{id}', name: 'play_quiz')]
+    /**
+     * Lance le quiz du tutoriel
+     *
+     * @param Tutorial      $tutorial
+     * @param Request       $request
+     *
+     * @return Response
+     */
+    public function quiz(Tutorial $tutorial, Request $request): Response
+    {
+        $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
+
+        $tutorialForm->handleRequest($request);
+        if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
+            // $manager = $this->getDoctrine()->getManager();
+            // $manager->flush();
+            
+            return $this->redirectToRoute('tutorial_list');
+        }
+
+        return $this->render('tutorial/quiz.html.twig', [
+            'tutorial' => $tutorial,
+        ]);
+    }
 }

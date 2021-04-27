@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+    <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
+    <h4 id="TutoViewAuthor" > Author : {{ tutorial.author.username }}</h4>
+
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>Les questions</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                {% for question in tutorial.questions %}
+                    <div class="row question-type">
+                        <div class="col-md-10">{{ question.content }}</div>
+                        {% for answer in question.answers %}
+                            <div class="row answer-type">
+                                <div class="col-md-8">{{ answer.content }}</div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" id="q{{ question.id }}-a{{ answer.id }}" name="q{{ question.id }}-a{{ answer.id }}" value="">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                </div>
+                <input type="submit" value="Enregistrer mes réponses">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
