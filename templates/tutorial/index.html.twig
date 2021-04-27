@@ -50,7 +50,12 @@
 
             <div class="elementCase createTutorial">
                 <h3>Envie de partager votre savoir ?</h3>
-                <a href="{{ path('tutorial_create') }}">Créer un tutoriel !</a>
+                {% if app.user %}
+                    <a href="{{ path('tutorial_create') }}">Créer un tutoriel !</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Créer un tutoriel !</a>
+                {% endif %}
+                
             </div>
 
             <div class="elementCase viewCategory">
