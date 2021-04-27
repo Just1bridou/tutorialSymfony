@@ -13,7 +13,11 @@
     </div>
 
     <div class="TutoEditMd">Writing in Markdown is possible in this form, have fun: <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Tuto Markdown</a></div>
-    <div class="TutoEditForm">{{ form_row(tutorialForm.content) }}</div>
+    
+        <div class="TutoEditForm">
+            {{ form_row(tutorialForm.content) }}
+            <div class="markDownPreview"></div>
+        </div>
 </div>
 
 
