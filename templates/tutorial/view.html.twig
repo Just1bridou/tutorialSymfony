@@ -13,5 +13,9 @@
         {% endapply %}
     </section>
 
+    <div class="elementCase playQuiz">
+        <h3>Testez votre compréhension du tutoriel</h3>
+        <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">Répondre aux questions du Quiz!</a>
+    </div>
 
 {% endblock %}
