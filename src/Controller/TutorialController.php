@@ -50,6 +50,7 @@ class TutorialController extends AbstractController
         if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
             $tutorial->setIsDeleted(false);
             $tutorial->setAuthor($security->getUser());
+            $tutorial->setCreatedAt(new \DateTime());
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($tutorial);
@@ -78,9 +79,11 @@ class TutorialController extends AbstractController
 
         $tutorialForm->handleRequest($request);
         if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
+            $tutorial->setEditedAt(new \DateTime());
+
             $manager = $this->getDoctrine()->getManager();
             $manager->flush();
-    
+
             return $this->redirectToRoute('tutorial_list');
         }
     

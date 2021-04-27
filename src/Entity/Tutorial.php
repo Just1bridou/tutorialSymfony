@@ -76,6 +76,16 @@ class Tutorial
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $editedAt;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -308,6 +318,30 @@ class Tutorial
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getEditedAt(): ?\DateTimeInterface
+    {
+        return $this->editedAt;
+    }
+
+    public function setEditedAt(?\DateTimeInterface $editedAt): self
+    {
+        $this->editedAt = $editedAt;
 
         return $this;
     }

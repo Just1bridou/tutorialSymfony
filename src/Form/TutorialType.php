@@ -24,7 +24,8 @@ class TutorialType extends AbstractType
         $builder
         ->add('title', TextType::class, [
             'label' => false,
-            'attr' => ['class' => 'form-control'],
+            'attr' => ['class' => 'form-control',
+                        'placeholder'=> 'Title'],
         ])
         ->add('content', TextareaType::class, [
             'label' => false,
@@ -40,7 +41,7 @@ class TutorialType extends AbstractType
             'attr' => ['class' => 'form-check form-control'],
         ])
         ->add('category', EntityType::class, [
-            'label' => false,
+            'label' => 'Catégorie : ',
             'class' => Category::class,
             'choice_label' => function (Category $category) {
                 return $category->getContent();

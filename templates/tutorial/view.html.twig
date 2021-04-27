@@ -5,7 +5,10 @@
 {% block body %}
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
     <h4 id="TutoViewAuthor" > Author : {{ tutorial.author }}</h4>
-
+    <p class="TutoViewdate" > Created at : {{ tutorial.createdAt|date("d/m/Y") }}</p>
+    {% if tutorial.editedAt != null %}
+        <p class="TutoViewdate2" > Last update : {{ tutorial.editedAt|date("d/m/Y")}}</p>
+    {% endif %}
     <section class="TutoViewSection"> 
 
         {% apply markdown_to_html %}

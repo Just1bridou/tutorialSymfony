@@ -371,6 +371,10 @@ footer div {
     margin-bottom: 10px;
     height: 40px;
 }
+.TutoEditSelect>div>label{
+    color: rgba(255,255,255,1);
+    margin-left: 15px;
+}
 
 .TutoEditisPublished{
     color:white;
@@ -438,7 +442,6 @@ footer div {
 #TutoViewAuthor{
     margin-top: -15px;
     color: white;
-    margin-bottom: 30px;
     margin-left: 10vw;
 }
 
@@ -449,4 +452,17 @@ footer div {
     background-color: rgb(255, 255, 255);
     padding: 10px 15px 10px 15px;
     border-radius: 10px;
+}
+
+.TutoViewdate{
+    margin-top: -5px;
+    color: white;
+    margin-left: 10vw;
+}
+
+.TutoViewdate2{
+    margin-top: -20px;
+    color: white;
+    margin-bottom: 30px;
+    margin-left: 10vw;
 }
