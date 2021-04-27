@@ -71,7 +71,11 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('birthday', DateType::class, [
                 'label' => 'Date de naissance',
-                'attr' => ['class' => 'btn btn-primary'],
+                'attr' => ['class' => 'form-control'],
+                'widget' => 'choice',
+                'years' => range(date('Y'), date('Y')-100),
+                'months' => range(1, 12),
+                'days' => range(1, 31),
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
