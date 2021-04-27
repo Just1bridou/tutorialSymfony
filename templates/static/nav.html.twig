@@ -18,7 +18,12 @@
 
         <div class="menu">
             <a class="cat" href="{{ path("tutorial_list")}}">Tutoriels</a>
-            <a class="cat" href="{{ path("user_account")}}">Mon compte</a>
+            {% if app.user %}
+                <a class="cat" href="{{ path("user_account")}}">Mon compte</a>
+            {% else %}
+                <a class="cat" href="{{ path("app_login")}}">Se connecter</a>
+            {% endif %}
+            
         </div>
 
     </nav>
