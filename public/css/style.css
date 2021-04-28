@@ -478,3 +478,119 @@ footer div {
     margin-bottom: 30px;
     margin-left: 10vw;
 }
+
+/* LOGIN PAGE */
+
+.loginPage {
+    margin-top: 50px;
+    font-family: 'avenirBold';
+}
+
+.loginPage h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+.loginPage form, .loginPage .form {
+    position: relative;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginPage input {
+    border-radius: 100px;
+    font-size: 25px;
+    padding: 10px 30px 10px 30px;
+    border: none;
+    margin-top: 30px;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.loginPage input:focus {
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.loginPage .submitButton {
+    color: white;
+    padding: 10px;
+
+    background-color: #a557f3;
+    border: none;
+    font-size: 30px;
+    margin-top: 50px;
+    width: 100%;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.loginPage .submitButton:hover {
+    filter: brightness(70%);
+}
+
+.loginPage .register {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+.loginPage .register a {
+    text-decoration: none;
+    color: gold;
+    transition: 0.1s all ease-in-out;
+}
+
+.loginPage .register a:hover {
+    filter: brightness(70%);
+}
+
+.alreadyLogged {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    height: 100%;
+}
+
+.alreadyLogged span {
+    color: gold;
+    text-transform:capitalize;
+}
+
+.alreadyLogged a {
+    color: white;
+    border: none;
+    background-color: #a557f3;
+    font-size: 40px;
+    border-radius: 100px;
+    padding: 10px 40px 10px 40px;
+    text-decoration: none;
+    transition: 0.1s all ease-in-out;
+    margin-top: 300px;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.alreadyLogged a:hover {
+    filter: brightness(70%);
+}
+
+.loginPage label {
+    margin-top: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+#registration_form_birthday {
+    border-radius: 100px;
+    font-size: 23px;
+    padding: 10px 30px 10px 30px;
+    border:none;
+    display: flex;
+}
+
+#registration_form_birthday select {
+    flex: 1;
+    border: none;
+    margin: 0 10px 0 10px;
+}

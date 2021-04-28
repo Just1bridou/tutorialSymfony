@@ -22,8 +22,9 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => 'Nom de compte',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                            'placeholder'=> 'Nom d\'utilisateur'],
             ])
             // ->add('agreeTerms', CheckboxType::class, [
             //     'label' => 'Accepter les terms d\'utilisation',
@@ -38,8 +39,9 @@ class RegistrationFormType extends AbstractType
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'label' => 'Mot de passe',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder'=> 'Mot de passe'],
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
@@ -54,20 +56,24 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder'=> 'Email'],
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder'=> 'Ville'],
             ])
             ->add('zip', TextType::class, [
-                'label' => 'Code postal',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder'=> 'Code postal'],
             ])
             ->add('address', TextType::class, [
-                'label' => 'Adresse',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder'=> 'Adresse'],
             ])
             ->add('birthday', DateType::class, [
                 'label' => 'Date de naissance',
@@ -76,10 +82,14 @@ class RegistrationFormType extends AbstractType
                 'years' => range(date('Y'), date('Y')-100),
                 'months' => range(1, 12),
                 'days' => range(1, 31),
+                'placeholder' => [
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                ],
+                'format' => 'dd MM yyyy',
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
-                'attr' => ['class' => 'btn btn-primary'],
+                'attr' => ['class' => 'btn btn-primary submitButton'],
             ])
         ;
     }

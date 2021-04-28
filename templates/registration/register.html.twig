@@ -7,46 +7,21 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>S'enregistrer</h1>
 
-    <div class="col-xl-12 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>Informations</h2>
-                </div>
-            </div>
-            <div class="card-body">
-                {{ form_start(registrationForm) }}
-                <div class="row">
-                    <div class="col-md-4">
-                        {{ form_row(registrationForm.username) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_row(registrationForm.plainPassword) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_row(registrationForm.email) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        {{ form_row(registrationForm.city) }}
-                    </div>
-                    <div class="col-md-6">
-                        {{ form_row(registrationForm.address) }}
-                    </div>
-                </div>
-                    <div class="row">
-                    <div class="col-md-8">
-                        {{ form_row(registrationForm.zip) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_row(registrationForm.birthday) }}
-                    </div>
-                </div>
-                {{ form_end(registrationForm) }}
-            </div>
+    <section class="loginPage">
+        <h1>S'enregistrer</h1>
+        <div class="form">
+
+            <div>{{ form_start(registrationForm) }}</div>
+            <div>{{ form_row(registrationForm.username) }}</div>
+            <div>{{ form_row(registrationForm.plainPassword) }}</div>
+            <div>{{ form_row(registrationForm.email) }}</div>
+            <div>{{ form_row(registrationForm.city) }}</div>
+            <div>{{ form_row(registrationForm.address) }}</div>
+            <div>{{ form_row(registrationForm.zip) }}</div>
+            <div>{{ form_row(registrationForm.birthday) }}</div>
+            <div>{{ form_end(registrationForm) }}</div>
+            
         </div>
-    </div>
+    </section>
 {% endblock %}
