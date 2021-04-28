@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Tutorial;
 use App\Form\TutorialType;
+use App\Manager\ScoreManager;
 use App\Repository\TutorialRepository;
+use App\Repository\ScoreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,7 +50,7 @@ class TutorialController extends AbstractController
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
 
         $tutorialForm->handleRequest($request);
-        if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
+        if ($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
             $tutorial->setIsDeleted(false);
             $tutorial->setAuthor($security->getUser());
             $tutorial->setCreatedAt(new \DateTime());
@@ -79,7 +82,7 @@ class TutorialController extends AbstractController
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
 
         $tutorialForm->handleRequest($request);
-        if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
+        if ($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
             $tutorial->setEditedAt(new \DateTime());
 
             $manager = $this->getDoctrine()->getManager();
@@ -93,7 +96,7 @@ class TutorialController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'view_tutorial')]
+    #[Route('/{id}', name: 'view')]
     /**
      * Voir un tutoriel
      *
@@ -111,40 +114,36 @@ class TutorialController extends AbstractController
     #[Route('/quiz/{id}', name: 'play_quiz')]
     /**
      * Lance le quiz du tutoriel
+     * 
+     * @todo Retourner le meilleur score de l'utilisateur connecté sur ce $tutorial
      *
-     * @param Tutorial      $tutorial
-     * @param Request       $request
+     * @param Tutorial          $tutorial
+     * @param Request           $request
+     * @param ScoreRepository   $scoreRepository
      *
      * @return Response
      */
-    public function quiz(Tutorial $tutorial, Request $request): Response
+    public function quiz(Tutorial $tutorial, Request $request, ScoreRepository $scoreRepository): Response
     {
-        $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
-
-        $tutorialForm->handleRequest($request);
-        if($tutorialForm->isSubmitted() && $tutorialForm->isValid()){
-            // $manager = $this->getDoctrine()->getManager();
-            // $manager->flush();
-            
-            return $this->redirectToRoute('tutorial_list');
-        }
-
         return $this->render('tutorial/quiz.html.twig', [
             'tutorial' => $tutorial,
         ]);
     }
 
-    #[Route('/quizz/response', name: 'response_tutorial')]
+    #[Route('/response/ajax', name: 'response')]
     /**
      * Reponse d'ajax
+     * 
+     * @todo Trouver un nom cohérent pour la route
      *
-     * @param Request   $request
+     * @param Request       $request
+     * @param ScoreManager  $scoreManager
      *
-     * @return Response
+     * @return JsonResponse
      */
-    public function quizzResponse(Request $request): Response
+    public function quizResponse(Request $request, ScoreManager $scoreManager): JsonResponse
     {
-        dd($request);
-        return $this->render('homepage/index.html.twig');
+        $scoreManager->saveScore($request);
+        return new JsonResponse(null, Response::HTTP_OK);
     }
 }
