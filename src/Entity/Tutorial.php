@@ -345,4 +345,14 @@ class Tutorial
 
         return $this;
     }
+
+    /**
+     * Méthode toString
+     * 
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getTitle();
+    }
 }

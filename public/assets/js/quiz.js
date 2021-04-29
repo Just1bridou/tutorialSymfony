@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    var submit = document.querySelector('.submitQuizz')
+    var submit = document.querySelector('.submitQuiz')
     
     submit.addEventListener('click', () => {
         var questionsContent = document.querySelectorAll('.question-type')
         
-        var responseQuizz = []
+        var responseQuiz = []
 
         for(let question of questionsContent) {
 
@@ -26,27 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 )
             }
 
-            responseQuizz.push({
+            responseQuiz.push({
                 "question": question.querySelector('.questionName').id,
                 "answers": answersList
             })
         }
 
+        let idTuto = document.querySelector('.quizForm').getAttribute('tuto-id')
+        let redirectTo = '/tutorial/' + idTuto
         let ajaxSend = {
-            "id_tuto": document.querySelector('.quizzForm').getAttribute('tuto-id'),
-            "quizz": responseQuizz
+            "id_tuto": idTuto,
+            "quiz": responseQuiz
         }
         
-        console.log(responseQuizz)
+        console.log(ajaxSend)
 
 
         $.ajax({
             method: "POST",
-            url: '/tutorial/quizz/response',
+            url: '/tutorial/response/ajax',
             data: ajaxSend,
-            success: function(reponse){}
-     });
-
+            success: function(reponse){
+                location.href = redirectTo;
+            }
+        });
     })
-
 })
