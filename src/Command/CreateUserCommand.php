@@ -184,6 +184,7 @@ class CreateUserCommand extends Command
         $user->setBirthday(DateTime::createFromFormat('Y-m-d', $birthday));
         $user->setIsBanned($isBanned);
         $user->setIsVerified($isVerified);
+        $user->setWallet(0);
 
         try {
             $this->entityManager->persist($user);

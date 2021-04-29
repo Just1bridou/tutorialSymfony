@@ -98,6 +98,11 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $Wallet;
+
     public function __construct()
     {
         $this->tutorials = new ArrayCollection();
@@ -386,6 +391,18 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getWallet(): ?float
+    {
+        return $this->Wallet;
+    }
+
+    public function setWallet(float $Wallet): self
+    {
+        $this->Wallet = $Wallet;
 
         return $this;
     }

@@ -119,11 +119,10 @@ class TutorialController extends AbstractController
      *
      * @param Tutorial          $tutorial
      * @param Request           $request
-     * @param ScoreRepository   $scoreRepository
      *
      * @return Response
      */
-    public function quiz(Tutorial $tutorial, Request $request, ScoreRepository $scoreRepository): Response
+    public function quiz(Tutorial $tutorial, Request $request): Response
     {
         return $this->render('tutorial/quiz.html.twig', [
             'tutorial' => $tutorial,
@@ -143,7 +142,7 @@ class TutorialController extends AbstractController
      */
     public function quizResponse(Request $request, ScoreManager $scoreManager): JsonResponse
     {
-        $scoreManager->newSaveScore($request);
+        $scoreManager->SaveScore($request);
         return new JsonResponse(null, Response::HTTP_OK);
     }
 }

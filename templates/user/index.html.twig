@@ -1,8 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ user.username }}</h1>
-    <a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">Mes tutoriels</a>
-    <a href="{{ path('app_logout') }}">Se déconnecter</a>
-
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>{{ user.username }}</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4"><a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">Mes tutoriels</a></div>
+                    <div class="col-md-4"><a href="{{ path('app_logout') }}">Se déconnecter</a></div>
+                    <div class="col-md-4">Your wallet got {{ user.wallet }} point{% if user.wallet > 1 %}s{% endif %}!</div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

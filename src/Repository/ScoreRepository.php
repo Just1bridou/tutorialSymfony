@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Score;
+use App\Entity\Tutorial;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +19,18 @@ class ScoreRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Score::class);
+    }
+
+    public function getMaxScoreFor(User $user, Tutorial $turorial): array
+    {
+        return $this->createQueryBuilder('s')
+            ->select('s, MAX(s.score) AS max_score')
+            ->where('s.learner = :user')
+            ->andWhere('s.tutorial = :tutorial')
+            ->setParameter('user', $user)
+            ->setParameter('tutorial', $turorial)
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
