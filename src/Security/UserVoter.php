@@ -10,10 +10,12 @@ class UserVoter extends Voter
 {
     const TUTO_DASHBOARD = 'tuto_dashboard';
     const TUTO_EDIT = 'tuto_edit';
+    const TUTO_CREATE = 'tuto_create';
+    const TUTO_PLAY = 'tuto_play';
 
     protected function supports(string $attribute, $subject): bool
     {
-        if (!in_array($attribute, [self::TUTO_DASHBOARD, self::TUTO_EDIT])) {
+        if (!in_array($attribute, [self::TUTO_DASHBOARD, self::TUTO_EDIT, self::TUTO_CREATE, self::TUTO_PLAY])) {
             return false;
         }
 
