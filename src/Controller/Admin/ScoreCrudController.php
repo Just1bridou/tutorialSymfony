@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Score;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 class ScoreCrudController extends AbstractCrudController
@@ -19,7 +20,8 @@ class ScoreCrudController extends AbstractCrudController
         return [
             NumberField::new('score'),
             AssociationField::new('learner'),
-            AssociationField::new('tutorial')
+            AssociationField::new('tutorial'),
+            DateTimeField::new('playedAt')
         ];
     }
 }

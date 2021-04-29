@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             url: '/tutorial/response/ajax',
             data: ajaxSend,
             success: function(reponse){
-                //location.href = redirectTo;
+                location.href = redirectTo;
             }
         });
     })

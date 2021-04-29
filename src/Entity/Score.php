@@ -34,6 +34,11 @@ class Score
      */
     private $score;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $playedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Score
     public function setScore(float $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getPlayedAt(): ?\DateTimeInterface
+    {
+        return $this->playedAt;
+    }
+
+    public function setPlayedAt(\DateTimeInterface $playedAt): self
+    {
+        $this->playedAt = $playedAt;
 
         return $this;
     }

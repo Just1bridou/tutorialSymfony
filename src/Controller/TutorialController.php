@@ -143,7 +143,6 @@ class TutorialController extends AbstractController
      */
     public function quizResponse(Request $request, ScoreManager $scoreManager): JsonResponse
     {
-        //$scoreManager->saveScore($request);
         $scoreManager->newSaveScore($request);
         return new JsonResponse(null, Response::HTTP_OK);
     }
