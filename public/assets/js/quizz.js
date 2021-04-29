@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
             for(let answer of answers) {
                 let answerValue = answer.querySelector('.answerValue')
 
+                let valueBool = (answerValue.checked?1:0)
+
                 answersList.push(
                     {
                         "name": answerValue.name,
-                        "value": answerValue.checked
+                        "value": valueBool
                     }
                 )
             }
