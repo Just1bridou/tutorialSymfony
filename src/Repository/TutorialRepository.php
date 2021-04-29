@@ -39,6 +39,16 @@ class TutorialRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function selectTutorialWithQuizz($id): array {
+        return $this->createQueryBuilder('t')
+            ->select('t,q,a')
+            ->leftJoin('t.questions', 'q')
+            ->leftJoin('q.answers', 'a')
+            ->where('t.id = ' . $id)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Tutorial[] Returns an array of Tutorial objects
     //  */

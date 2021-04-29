@@ -41,13 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         console.log(ajaxSend)
 
-
         $.ajax({
             method: "POST",
             url: '/tutorial/response/ajax',
             data: ajaxSend,
             success: function(reponse){
-                location.href = redirectTo;
+                //location.href = redirectTo;
             }
         });
     })
