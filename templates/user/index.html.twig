@@ -10,8 +10,9 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4"><a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">Mes tutoriels</a></div>
-                    <div class="col-md-4"><a href="{{ path('app_logout') }}">Se déconnecter</a></div>
+                    <div class="col-md-4"><a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">My tutorials</a></div>
+                    <div class="col-md-4"><a href="{{ path('user_scores', {'id': user.id}) }}" class="link-create">My scores</a></div>
+                    <div class="col-md-4"><a href="{{ path('app_logout') }}">Logout</a></div>
                     <div class="col-md-4">Your wallet got {{ user.wallet }} point{% if user.wallet > 1 %}s{% endif %}!</div>
                 </div>
             </div>
