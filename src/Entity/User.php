@@ -101,7 +101,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="float")
      */
-    private $Wallet;
+    private $Wallet = 0;
 
     public function __construct()
     {

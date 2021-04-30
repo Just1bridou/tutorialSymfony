@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Tutorial;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @method Tutorial|null find($id, $lockMode = null, $lockVersion = null)
@@ -32,7 +33,7 @@ class TutorialRepository extends ServiceEntityRepository
     public function searchTutorial($keyword): array
     {
         return $this->createQueryBuilder('t')
-            ->select('t')
+            ->select('t.id, t.title')
             ->where('t.title LIKE :key')
             ->setParameter('key' , '%'.$keyword.'%')
             ->getQuery()

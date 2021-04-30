@@ -10,7 +10,8 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         <link href="/css/style.css" rel="stylesheet"/>
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
+            <script src="{{ asset('assets/js/search.js') }}"></script>
         {% endblock %}
     </head>
 

@@ -1615,169 +1615,189 @@
       <DataType>DOUBLE PRECISION|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="557" parent="177" name="IDX_3299375189366B7B">
+    <column id="557" parent="177" name="played_at">
+      <Position>5</Position>
+      <DataType>DATETIME|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="558" parent="177" name="IDX_3299375189366B7B">
       <ColNames>tutorial_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="558" parent="177" name="IDX_329937516209CB66">
+    <index id="559" parent="177" name="IDX_329937516209CB66">
       <ColNames>learner_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="559" parent="177">
+    <key id="560" parent="177">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="560" parent="177" name="FK_3299375189366B7B">
+    <foreign-key id="561" parent="177" name="FK_3299375189366B7B">
       <ColNames>tutorial_id</ColNames>
       <RefTableName>tutorial</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="561" parent="177" name="FK_329937516209CB66">
+    <foreign-key id="562" parent="177" name="FK_329937516209CB66">
       <ColNames>learner_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="562" parent="178" name="type">
+    <column id="563" parent="178" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="563" parent="178" name="name">
+    <column id="564" parent="178" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="564" parent="178" name="tbl_name">
+    <column id="565" parent="178" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="565" parent="178" name="rootpage">
+    <column id="566" parent="178" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="566" parent="178" name="sql">
+    <column id="567" parent="178" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="567" parent="179" name="name">
+    <column id="568" parent="179" name="name">
       <Position>1</Position>
     </column>
-    <column id="568" parent="179" name="seq">
+    <column id="569" parent="179" name="seq">
       <Position>2</Position>
     </column>
-    <column id="569" parent="180" name="id">
+    <column id="570" parent="180" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="570" parent="180" name="author_id">
+    <column id="571" parent="180" name="author_id">
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="571" parent="180" name="category_id">
+    <column id="572" parent="180" name="category_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="572" parent="180" name="title">
+    <column id="573" parent="180" name="title">
       <Position>4</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="573" parent="180" name="content">
+    <column id="574" parent="180" name="content">
       <Position>5</Position>
       <DataType>CLOB|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="574" parent="180" name="is_published">
+    <column id="575" parent="180" name="is_published">
       <Position>6</Position>
       <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="575" parent="180" name="is_deleted">
+    <column id="576" parent="180" name="is_deleted">
       <Position>7</Position>
       <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="576" parent="180" name="IDX_C66BFFE9F675F31B">
+    <column id="577" parent="180" name="created_at">
+      <Position>8</Position>
+      <DataType>DATETIME|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="578" parent="180" name="edited_at">
+      <Position>9</Position>
+      <DataType>DATETIME|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
+    </column>
+    <index id="579" parent="180" name="IDX_C66BFFE9F675F31B">
       <ColNames>author_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="577" parent="180" name="IDX_C66BFFE912469DE2">
+    <index id="580" parent="180" name="IDX_C66BFFE912469DE2">
       <ColNames>category_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="578" parent="180">
+    <key id="581" parent="180">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="579" parent="180" name="FK_C66BFFE9F675F31B">
+    <foreign-key id="582" parent="180" name="FK_C66BFFE9F675F31B">
       <ColNames>author_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="580" parent="180" name="FK_C66BFFE912469DE2">
+    <foreign-key id="583" parent="180" name="FK_C66BFFE912469DE2">
       <ColNames>category_id</ColNames>
       <RefTableName>category</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="581" parent="181" name="id">
+    <column id="584" parent="181" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="582" parent="181" name="username">
+    <column id="585" parent="181" name="username">
       <Position>2</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="583" parent="181" name="email">
+    <column id="586" parent="181" name="email">
       <Position>3</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="584" parent="181" name="password">
+    <column id="587" parent="181" name="password">
       <Position>4</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="585" parent="181" name="city">
+    <column id="588" parent="181" name="city">
       <Position>5</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="586" parent="181" name="zip">
+    <column id="589" parent="181" name="zip">
       <Position>6</Position>
       <DataType>VARCHAR(15)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="587" parent="181" name="address">
+    <column id="590" parent="181" name="address">
       <Position>7</Position>
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="588" parent="181" name="birthday">
+    <column id="591" parent="181" name="birthday">
       <Position>8</Position>
       <DataType>DATE|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="589" parent="181" name="is_banned">
+    <column id="592" parent="181" name="is_banned">
       <Position>9</Position>
       <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="590" parent="181" name="roles">
+    <column id="593" parent="181" name="is_verified">
       <Position>10</Position>
-      <DataType>CLOB|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="591" parent="181" name="is_verified">
-      <Position>11</Position>
       <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="592" parent="181">
+    <column id="594" parent="181" name="roles">
+      <Position>11</Position>
+      <DataType>CLOB|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="595" parent="181" name="wallet">
+      <Position>12</Position>
+      <DataType>DOUBLE PRECISION|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="596" parent="181">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

@@ -46,7 +46,7 @@ class TutorialController extends AbstractController
      */
     public function create(Request $request, Security $security): Response
     {
-        $this->denyAccessUnlessGranted('tuto_create', $security->getUser());
+        //$this->denyAccessUnlessGranted('tuto_create', $security->getUser());
 
         $tutorial = new Tutorial();
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
@@ -67,6 +67,21 @@ class TutorialController extends AbstractController
         return $this->render('tutorial/edit.html.twig', [
             'tutorialForm' => $tutorialForm->createView(),
         ]);
+    }
+
+    #[Route('/search', name: 'search')]
+    /**
+     * Search a tutorial
+     *
+     * @param Request $request
+     * @param TutorialRepository $tutorialRepository
+     *
+     * @return JsonResponse
+     */
+    public function searchTutorial(Request $request, TutorialRepository $tutorialRepository): JsonResponse
+    {
+        $tutorials = $tutorialRepository->searchTutorial($request->request->get("query"));
+        return new JsonResponse($tutorials, Response::HTTP_OK);
     }
 
     #[Route('/edit/{id}', name: 'edit')]
