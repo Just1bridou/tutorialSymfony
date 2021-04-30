@@ -18,6 +18,11 @@
     src: url("../fonts/AVENIR/AvenirNextLTPro-MediumCn.otf");
 }
 
+@font-face {
+    font-family: "avenirReg";
+    src: url("../fonts/AVENIR/AvenirNextLTPro-Regular.otf");
+}
+
 *{
     outline: none;
 }
@@ -555,7 +560,6 @@ footer div {
 
 .alreadyLogged span {
     color: gold;
-    text-transform:capitalize;
 }
 
 .alreadyLogged a {
@@ -635,4 +639,119 @@ footer div {
     z-index: -1;
   /*  border-top: 2px solid black;
     border-left: 2px solid black;*/
+}
+
+/* QUIZ */
+
+.playQuiz {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    left: 10%;
+   /* transform: translateX(-50%);*/
+    font-family: 'avenirBold';
+    margin-top: 100px;
+    line-height: 60px;
+}
+
+.playQuiz h3 {
+    font-size: 50px;
+    color: white;
+}
+
+.playQuiz a {
+    position: relative;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    background-color: #a557f3;
+    border: none;
+    margin-top: 50px;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.playQuiz a:hover {
+    filter: brightness(70%);
+}
+
+.quizForm {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    font-family: 'avenirBold';
+}
+
+.quizForm h2 {
+    margin-top: unset;
+    margin-bottom: unset;
+    line-height: unset;
+    padding: 20px 0 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 70px;
+}
+
+.questionBloc {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    font-size: 25px;
+    border-top: 10px solid gold;
+    text-transform: capitalize;
+}
+
+.answerBloc {
+    margin-top: 30px;
+    font-family: 'avenirReg';
+    position: relative;
+}
+
+.answerBloc .answerName {
+   /* position: absolute;*/
+    position: relative;
+    width: auto;
+    padding: 3px 12px 3px 12px;
+    border: 2px solid black;
+    transition: 0.04s all ease-in-out;
+}
+
+.answerBloc .answerName:hover {
+    cursor: pointer;
+}
+
+.answerBloc .input {
+   display: none;
+}
+
+.selectAnswer {
+    background-color: gold;
+    border-color: gold !important;
+}
+
+.submitQuiz {
+    font-size: 30px;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    background-color: gold;
+    border: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submitQuiz:hover {
+    filter: brightness(70%);
+    cursor: pointer;
 }

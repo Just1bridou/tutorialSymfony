@@ -17,14 +17,18 @@
     </section>
 
     {% if tutorial.getQuestions().count() > 0 %}
-    <div class="elementCase playQuiz">
-        <h3>Testez votre compréhension du tutoriel</h3>
+    <div class="playQuiz">
+        <h3>Testez votre compréhension du tutoriel !</h3><br>
         {% if app.user %}
-        <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">Répondre aux questions du Quiz!</a>
+        <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">Faire le Quiz !</a>
         {% else %}
         <p>Vous devez vous connecter pour répondre au quiz: <a href="{{ path('app_login') }}">Se connecter</a><p>
         {% endif %}
     </div>
+    {% else %}
+    <div class="playQuiz">
+        <h3>Ce tutoriel ne contient pas de Quiz</h3>
+    </div> 
     {% endif %}
 
 {% endblock %}
