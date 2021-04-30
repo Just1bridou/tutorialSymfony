@@ -19,7 +19,7 @@
                     <div class="card tutorialCard">
                         <div class="tutoCategory">{{ tutorial.category }}</div>
                         <div class="title">{{ tutorial.title }}</div>
-                        <a href="/tutorial/{{ tutorial.id }}" class="stretched-link"></a>
+                        <a href="{{ path('tutorial_view', {'id': tutorial.id}) }}" class="stretched-link"></a>
                     </div>
 
                 {% endif %}
@@ -60,7 +60,7 @@
 
             <div class="elementCase viewCategory">
                 <h3>Vous voulez voir nos autres tutoriels ?</h3>
-                <a href="#">Voir les catégories</a>
+                <a href="{{ path('category_list') }}">Voir les catégories</a>
             </div>
 
         </section>
