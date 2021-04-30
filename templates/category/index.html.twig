@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+    <section class="mainContent">
+
+        {% if tutorials is defined and tutorials is not empty or categories is not empty %}
+
+            <section class="secondContent elementCase">
+
+                <h2 class="text-center p-3 text-uppercase">Categories</h2>
+
+                {% for category in categories %}
+
+                    <a href="{{ path('category_show', {'id': category.id}) }}">{{ category.content }}s</a>
+
+                {% endfor %}
+
+            </section>
+
+            {% if tutorials is defined and tutorials is not empty %}
+
+                <section class="secondContent">
+
+                    <div class="elementCase">
+
+                        <h3>Tutorials</h3>
+
+                        <div class="tutorialsContent">
+                            {% for tutorial in tutorials %}
+
+                                {% if tutorial.isPublished == true and tutorial.isDeleted == false  %}
+
+                                    <div class="card tutorialCard">
+                                        <div class="tutoCategory">{{ tutorial.category }}</div>
+                                        <div class="title">{{ tutorial.title }}</div>
+                                        <a href="{{ path('tutorial_view', {'id': tutorial.id}) }}" class="stretched-link"></a>
+                                    </div>
+
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                
+                </section>
+
+            {% endif %}
+        
+        {% endif %}
+
+        <section class="secondContent">
+
+                {# cas où a parent #}
+                {% if currentCategory.categoryParent is defined and currentCategory.categoryParent is not null %}
+                    <a href="{{ path('category_show', {'id': currentCategory.categoryParent.id}) }}">Retour sur la catégorie {{ currentCategory.categoryParent.content }}</a>
+                {% elseif currentCategory is defined and currentCategory is not null %}
+                    <a href="{{ path('category_list') }}">Retour au départ</a>
+                {% endif %}
+
+        </section>
+
+    </section>
+{% endblock %}
