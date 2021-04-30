@@ -43,13 +43,17 @@ class UserVoter extends Voter
                 return $this->canView($loggedUser, $author);
             case self::TUTO_EDIT:
                 return $this->canEdit($loggedUser, $author);
+            case self::TUTO_CREATE:
+                return $this->canCreate();
+            case self::TUTO_PLAY:
+                return $this->canPlay();
         }
 
         throw new \LogicException('This code should not be reached!');
     }
 
     /**
-     * Détermine si l'utilisateur authentifié peut visualiser le tableau de bord des tutoriels
+     * Check if the logged user can see the tutorial's dashboard
      * 
      * @param User  $loggedUser
      * @param User  $author
@@ -62,7 +66,7 @@ class UserVoter extends Voter
     }
 
     /**
-     * Détermine si l'utilisateur authentifié peut modifier un tutoriel
+     * Check if the logged user can edti a tutorial
      * 
      * @param User  $loggedUser
      * @param User  $author
@@ -75,7 +79,23 @@ class UserVoter extends Voter
     }
 
     /**
-     * Détermine si l'utilisateur authentifié est l'auteur du tutoriel
+     * Check if can create
+     */
+    private function canCreate(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Check if can play a quiz
+     */
+    private function canPlay(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Check if the logged user is the tutorial's author
      * 
      * @param User  $loggedUser
      * @param User  $author
