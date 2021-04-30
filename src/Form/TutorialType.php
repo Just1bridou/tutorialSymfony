@@ -56,8 +56,8 @@ class TutorialType extends AbstractType
             'by_reference' => false,
         ])
         ->add('submit', SubmitType::class, [
-            'label' => 'Enregistrer',
-            'attr' => ['class' => 'btn btn-primary'],
+            'label' => 'Publier le tutoriel',
+            'attr' => ['class' => 'submitFormQuestions'],
         ])
         ;
     }
