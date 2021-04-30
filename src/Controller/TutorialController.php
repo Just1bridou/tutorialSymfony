@@ -141,7 +141,7 @@ class TutorialController extends AbstractController
      */
     public function quiz(Tutorial $tutorial, Request $request): Response
     {
-        $this->denyAccessUnlessGranted('tuto_create', $tutorial->getAuthor());
+        //$this->denyAccessUnlessGranted('tuto_create', $tutorial->getAuthor());
 
         return $this->render('tutorial/quiz.html.twig', [
             'tutorial' => $tutorial,
