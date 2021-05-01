@@ -56,9 +56,11 @@
     </div>
     {% else %}
     <div class="playQuiz">
-        <h3>Ce tutoriel ne contient pas de Quiz</h3>
+        <h3>{% trans %}tutorial.view.no_quiz{% endtrans %}</h3>
     </div> 
     {% endif %}
+
+    <a href="{{ app.request.headers.get('referer') }}">{% trans %}tutorial.view.back{% endtrans %}</a>
 
     <div class="elementCase comments">
         {% if app.user %}

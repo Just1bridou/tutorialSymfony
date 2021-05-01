@@ -22,6 +22,8 @@ tutorial:
     login: Se connecter
     you_like: Aimes-tu ce tutoriel?
     like: J'aime
+    no_quiz: Ce tutoriel ne contient pas de Quiz
+    back: Retour
   quiz:
     quiz: Quiz
     author: Auteur
@@ -82,10 +84,13 @@ user:
     tutorial: Tutoriel
     score: Score
     date: Date
+    back: Retour
   my_tutorials:
     my_tutorials: Mes tutoriels
     title: Titre
     edit: Modifier
+    create: Créer
+    back: Retour
   achievement:
     achievements: Succès
     target_field: Champ Cible
@@ -93,6 +98,7 @@ user:
     goal: Objectif
     edit: Modifier
     create: Créer
+    back: Retour
 form:
   tutorial:
     title: Titre

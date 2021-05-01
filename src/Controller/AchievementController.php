@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Achievement;
 use App\Form\AchievementType;
 use App\Repository\AchievementRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AchievementController
  * @Route("/achievement", name="achievement_")
+ * @Security("is_granted('ROLE_SUPER_ADMIN')")
  */
 class AchievementController extends AbstractController
 {
@@ -37,8 +39,6 @@ class AchievementController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        //$this->denyAccessUnlessGranted('tuto_create', $security->getUser());
-
         $achievement = new Achievement();
         $achievementForm = $this->createForm(AchievementType::class, $achievement);
 
@@ -67,8 +67,6 @@ class AchievementController extends AbstractController
      */
     public function edit(Achievement $achievement, Request $request): Response
     {
-        //$this->denyAccessUnlessGranted('tuto_edit', $tutorial->getAuthor());
-
         $achievementForm = $this->createForm(AchievementType::class, $achievement);
 
         $achievementForm->handleRequest($request);
