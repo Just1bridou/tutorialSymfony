@@ -7,11 +7,15 @@
     <div class="column"> 
         <h4 id="TutoViewAuthor" > {% trans %}tutorial.view.author{% endtrans %}: {{ tutorial.author }}</h4>
         <p class="TutoViewdate" > {% trans %}tutorial.view.created_at{% endtrans %}: {{ tutorial.createdAt|date("d/m/Y") }}</p>
+        {% if tutorial.editedAt != null %}
+            <p class="TutoViewdate2" > {% trans %}tutorial.view.last_update{% endtrans %}: {{ tutorial.editedAt|date("d/m/Y")}}</p>
+        {% endif %}
     </div>
 
     <div class="rowbutton">
-        <p class="LikeButton" >
+        <div class="LikeButton" >
             <a href="{{ path('tutorial_post_like',{'id' : tutorial.id}) }}" class="btn btn-link js-like coeurblanc">
+                <div class="contentLikeButton">
             {% if app.user and tutorial.isLikedByUser(app.user) %}
                 <i class="fas fa-heart fa-2x"></i>
             {% else %}
@@ -19,8 +23,9 @@
             {% endif %}
                 <span class="js-likes coeurblanc">{{ tutorial.seeLikes | length }}</span>
                 <span class="js-label coeurblanc">{% trans %}tutorial.view.like{% endtrans %}</span>
+                </div>
             </a> 
-        </p>
+        </div>
         <div class="BookMarkButton" >
             <a href="{{ path('tutorial_post_bookMark',{'id' : tutorial.id}) }}" class="btn btn-linkBM js-bookMark coeurblanc">
                 {% if app.user and tutorial.isBookMarkedByUser(app.user) %}
@@ -32,12 +37,6 @@
         </div>
     </div>
 
-  
-   
-   
-    {% if tutorial.editedAt != null %}
-        <p class="TutoViewdate2" > {% trans %}tutorial.view.last_update{% endtrans %}: {{ tutorial.editedAt|date("d/m/Y")}}</p>
-    {% endif %}
     <section class="TutoViewSection"> 
 
         {% apply markdown_to_html %}
@@ -59,9 +58,9 @@
         <h3>{% trans %}tutorial.view.no_quiz{% endtrans %}</h3>
     </div> 
     {% endif %}
-
-    <a href="{{ app.request.headers.get('referer') }}">{% trans %}tutorial.view.back{% endtrans %}</a>
-
+    <div class="backButton">
+    <a href="{{ app.request.headers.get('referer') }}" >{% trans %}tutorial.view.back{% endtrans %}</a>
+    </div>
     <div class="elementCase comments">
         {% if app.user %}
             {{ form_start(commentForm) }}

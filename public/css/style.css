@@ -911,9 +911,24 @@ footer div {
 
 /*TutoView Like + Bookmark*/
 .rowbutton{
-    margin-left: 10vw;
+    margin-left: 10%;
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.contentLikeButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contentLikeButton span {
+    margin-left: 3px;
+}
+
+.contentLikeButton span:nth-last-child(2) {
+    margin-left: 10px;
 }
 
 .LikeButton>a{
@@ -1137,9 +1152,27 @@ footer div {
     background-color: #069d54;
 }
 
+.backButton {
+    margin: 50px;
+}
 
 
 
+.backButton a {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(255, 75, 75);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
 
-
-
+.backButton a:hover {
+    color: white;
+    filter:brightness(70%);
+}
