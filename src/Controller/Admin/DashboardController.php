@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Score;
 use App\Entity\Tutorial;
 use App\Entity\User;
@@ -37,5 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Users', 'fas fa-list', User::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Scores', 'fas fa-list', Score::class);
+        yield MenuItem::linkToCrud('Comments', 'fas fa-list', Comment::class);
     }
 }
