@@ -8,7 +8,7 @@
 
         <section class="secondContent elementCase">
 
-            <h2 class="text-center p-3 text-uppercase">Les 10 derniers tutoriels</h2>
+            <h2 class="text-center p-3 text-uppercase">{% trans %}tutorial.index.ten_last{% endtrans %}</h2>
 
             <div class="tutorialsContent">
 
@@ -33,7 +33,7 @@
         <section class="secondContent">
 
             <div class="elementCase">
-                <h3>Vous cherchez un tutoriel en particulier ?</h3>
+                <h3>{% trans %}tutorial.index.looking_for_a_tutorial{% endtrans %}</h3>
 
                 <div class="searchBarContent m-3">
                     <form class="searchBar customCaseSearch" action="#" method="post">
@@ -49,18 +49,18 @@
             </div>
 
             <div class="elementCase createTutorial">
-                <h3>Envie de partager votre savoir ?</h3>
+                <h3>{% trans %}tutorial.index.share_tutorial{% endtrans %}</h3>
                 {% if app.user %}
-                    <a href="{{ path('tutorial_create') }}">Créer un tutoriel !</a>
+                    <a href="{{ path('tutorial_create') }}">{% trans %}tutorial.index.create{% endtrans %}</a>
                 {% else %}
-                    <a href="{{ path('app_login') }}">Créer un tutoriel !</a>
+                    <a href="{{ path('app_login') }}">{% trans %}tutorial.index.create{% endtrans %}</a>
                 {% endif %}
                 
             </div>
 
             <div class="elementCase viewCategory">
-                <h3>Vous voulez voir nos autres tutoriels ?</h3>
-                <a href="{{ path('category_list') }}">Voir les catégories</a>
+                <h3>{% trans %}tutorial.index.see_more{% endtrans %}</h3>
+                <a href="{{ path('category_list') }}">{% trans %}tutorial.index.categories{% endtrans %}</a>
             </div>
 
         </section>

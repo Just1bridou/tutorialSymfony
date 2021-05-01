@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
@@ -16,6 +16,30 @@
       <trans-unit id="I5qdD7E" resname="navbar.login">
         <source>navbar.login</source>
         <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="Tcx7fqF" resname="tutorial.index.ten_last">
+        <source>tutorial.index.ten_last</source>
+        <target>__tutorial.index.ten_last</target>
+      </trans-unit>
+      <trans-unit id="ApRX82f" resname="tutorial.index.looking_for_a_tutorial">
+        <source>tutorial.index.looking_for_a_tutorial</source>
+        <target>__tutorial.index.looking_for_a_tutorial</target>
+      </trans-unit>
+      <trans-unit id="JdFl1_x" resname="tutorial.index.share_tutorial">
+        <source>tutorial.index.share_tutorial</source>
+        <target>__tutorial.index.share_tutorial</target>
+      </trans-unit>
+      <trans-unit id="69rgRV9" resname="tutorial.index.create">
+        <source>tutorial.index.create</source>
+        <target>__tutorial.index.create</target>
+      </trans-unit>
+      <trans-unit id="NFGkcv2" resname="tutorial.index.see_more">
+        <source>tutorial.index.see_more</source>
+        <target>__tutorial.index.see_more</target>
+      </trans-unit>
+      <trans-unit id="SyLoxPQ" resname="tutorial.index.categories">
+        <source>tutorial.index.categories</source>
+        <target>__tutorial.index.categories</target>
       </trans-unit>
     </body>
   </file>

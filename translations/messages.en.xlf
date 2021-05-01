@@ -17,6 +17,30 @@
         <source>navbar.login</source>
         <target>Login</target>
       </trans-unit>
+      <trans-unit id="Tcx7fqF" resname="tutorial.index.ten_last">
+        <source>tutorial.index.ten_last</source>
+        <target>The 10 last tutorials</target>
+      </trans-unit>
+      <trans-unit id="ApRX82f" resname="tutorial.index.looking_for_a_tutorial">
+        <source>tutorial.index.looking_for_a_tutorial</source>
+        <target>Are you looking for a specific tutorial?</target>
+      </trans-unit>
+      <trans-unit id="JdFl1_x" resname="tutorial.index.share_tutorial">
+        <source>tutorial.index.share_tutorial</source>
+        <target>Do you want to share your knowdlegde?</target>
+      </trans-unit>
+      <trans-unit id="69rgRV9" resname="tutorial.index.create">
+        <source>tutorial.index.create</source>
+        <target>Create a tutorial!</target>
+      </trans-unit>
+      <trans-unit id="NFGkcv2" resname="tutorial.index.see_more">
+        <source>tutorial.index.see_more</source>
+        <target>Do you want to see our others tutorials?</target>
+      </trans-unit>
+      <trans-unit id="SyLoxPQ" resname="tutorial.index.categories">
+        <source>tutorial.index.categories</source>
+        <target>Check the categories</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

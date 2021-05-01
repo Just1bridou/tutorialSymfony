@@ -2,3 +2,11 @@ navbar:
   tutorials: Tutorials
   my_account: My account
   login: Login
+tutorial:
+  index:
+    ten_last: The 10 last tutorials
+    looking_for_a_tutorial: Are you looking for a specific tutorial?
+    share_tutorial: Do you want to share your knowdlegde?
+    create: Create a tutorial!
+    see_more: Do you want to see our others tutorials?
+    categories: Check the categories

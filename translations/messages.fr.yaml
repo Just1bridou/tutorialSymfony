@@ -2,3 +2,11 @@ navbar:
   tutorials: Tutoriels
   my_account: Mon compte
   login: Se connecter
+tutorial:
+  index:
+    ten_last: Les 10 derniers tutoriels
+    looking_for_a_tutorial: Vous cherchez un tutoriel en particulier?
+    share_tutorial: Envie de partager votre savoir?
+    create: Créer un tutoriel!
+    see_more: Vous voulez voir nos autres tutoriels?
+    categories: Voir les catégories
