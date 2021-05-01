@@ -75,6 +75,7 @@ user:
     wallet: Your wallet got
     point: point
     logout: Logout
+    achievements: Achievements
   my_scores:
     my_scores: My scores
     tutorial: Tutorial
@@ -84,6 +85,13 @@ user:
     my_tutorials: My tutorials
     title: Title
     edit: Edit
+  achievement:
+    achievements: Achievements
+    target_field: Target Field
+    mathematical_operator: Mathematical Operator
+    goal: Goal
+    edit: Edit
+    create: Create
 form:
   tutorial:
     title: Title
@@ -123,4 +131,9 @@ form:
     remove_question: Delete this question
     remove_answer: Delete this answer
     add_answer: Add an answer
+  achievement:
+    target_field: Target Field
+    mathematical_operator: Mathematical Operator
+    goal: Goal
+    save: Save
   

@@ -17,7 +17,7 @@
                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <div class="row">
                             <div class="col-md-6"><a href="{{ path('admin') }}">EasyAdmin</a></div>
-                            <div class="col-md-6"><a href="{{ path('achievement_list') }}">ACHIEVEMENT</a></div>
+                            <div class="col-md-6"><a href="{{ path('achievement_list') }}">{% trans %}user.index.achievements{% endtrans %}</a></div>
                         </div>
                     {% endif %}
                 </div>
