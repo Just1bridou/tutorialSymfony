@@ -19,6 +19,16 @@ class AchievementRepository extends ServiceEntityRepository
         parent::__construct($registry, Achievement::class);
     }
 
+    public function findMinTutorialCountAchievement(string $targetField): array
+    {
+        return $this->createQueryBuilder('a')
+            ->select('MIN(a.goal) AS min_goal')
+            ->andWhere('a.targetField = :targetField')
+            ->setParameter('targetField', $targetField)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Achievement[] Returns an array of Achievement objects
     //  */

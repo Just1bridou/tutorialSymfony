@@ -8,6 +8,7 @@ use App\Entity\Tutorial;
 use App\Entity\PostLike;
 use App\Form\CommentType;
 use App\Form\TutorialType;
+use App\Manager\AchievementManager;
 use App\Manager\ScoreManager;
 use App\Repository\PostBookMarkRepository;
 use App\Repository\PostLikeRepository;
@@ -49,12 +50,13 @@ class TutorialController extends AbstractController
     /**
      * Crée un tutoriel
      * 
-     * @param Request   $request
-     * @param Security  $security
+     * @param Request               $request
+     * @param Security              $security
+     * @param AchievementManager    $achievementManager
      * 
      * @return Reponse
      */
-    public function create(Request $request, Security $security): Response
+    public function create(Request $request, Security $security, AchievementManager $achievementManager): Response
     {
         $this->denyAccessUnlessGranted('tuto_create', $security->getUser());
 
@@ -70,6 +72,8 @@ class TutorialController extends AbstractController
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($tutorial);
             $manager->flush();
+
+            $achievementManager->checkAchievement($security->getUser(), $achievementManager::TUTORIAL_COUNT);
     
             return $this->redirectToRoute('tutorial_list');
         }
