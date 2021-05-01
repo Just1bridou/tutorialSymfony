@@ -56,13 +56,8 @@ class TutorialType extends AbstractType
             'by_reference' => false,
         ])
         ->add('submit', SubmitType::class, [
-<<<<<<< HEAD
-            'label' => 'Publier le tutoriel',
-            'attr' => ['class' => 'submitFormQuestions'],
-=======
             'label' => 'form.tutorial.register',
             'attr' => ['class' => 'btn btn-primary'],
->>>>>>> 5152334e574c5641f7c799e90f8e0d08856349cf
         ])
         ;
     }
