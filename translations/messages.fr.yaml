@@ -20,6 +20,8 @@ tutorial:
     play_quiz: Faire le Quiz!
     should_be_logged: Vous devez vous connecter pour répondre au quiz
     login: Se connecter
+    you_like: Aimes-tu ce tutoriel?
+    like: J'aime
   quiz:
     quiz: Quiz
     author: Auteur

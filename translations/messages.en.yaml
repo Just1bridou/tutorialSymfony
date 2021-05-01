@@ -20,6 +20,8 @@ tutorial:
     play_quiz: Answer the quiz questions!
     should_be_logged: You should be logged to answer the quiz question
     login: Login
+    you_like: Do you like this tutorial?
+    like: Like
   quiz:
     quiz: Quiz
     author: Author
