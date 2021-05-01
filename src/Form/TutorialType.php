@@ -57,7 +57,7 @@ class TutorialType extends AbstractType
         ])
         ->add('submit', SubmitType::class, [
             'label' => 'form.tutorial.register',
-            'attr' => ['class' => 'btn btn-primary'],
+            'attr' => ['class' => 'btn btn-primary submitFormQuestions'],
         ])
         ;
     }
