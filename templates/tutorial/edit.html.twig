@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutoriels{% endblock %}
+{% block title %}{% trans %}navbar.tutorials{% endtrans %}{% endblock %}
 
 {% block body %}
 {{ form_start(tutorialForm) }}
 <div>
     <div class="column TutoEditChoixContainer">
-        <h2 id="TutoEditTitle" >Nouveau tutoriel</h2>
+        <h2 id="TutoEditTitle" >{% trans %}tutorial.edit.new{% endtrans %}</h2>
         <div class="TutoEditTitle">{{ form_row(tutorialForm.title)}}</div>
         <div class="TutoEditSelect">{{ form_row(tutorialForm.category) }}</div>
         <div class="TutoEditisPublished">{{ form_row(tutorialForm.isPublished) }}</div>
     </div>
 
-    <div class="TutoEditMd">Writing in Markdown is possible in this form, have fun: <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">Tuto Markdown</a></div>
+    <div class="TutoEditMd">{% trans %}tutorial.edit.in_markdown{% endtrans %}: <a href="https://www.markdownguide.org/basic-syntax/" target="_blank">{% trans %}tutorial.edit.markdown_guide{% endtrans %}</a></div>
     
         <div class="TutoEditForm">
             {{ form_row(tutorialForm.content) }}
@@ -20,22 +20,17 @@
         </div>
 </div>
 
+    <div class="questions">
 
-<div class="row">
-    <div class="col-xl-8 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>Les questions</h2>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="questions" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
+        <h2>{% trans %}tutorial.edit.questions{% endtrans %}</h2>
+        <i>{% trans %}tutorial.edit.indications{% endtrans %}</i>
 
+        <section>
+            <div class="questionsHolder" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
                 {% for question in tutorialForm.questions %}
-                    <div class="row question-type">
-                        <div class="col-md-10">{{ form_row(question.content) }}</div>
-                        <div class="col-md-2">{{ form_row(question.position) }}</div>
+                    <div class="question-type">
+                        <div>{{ form_row(question.content) }}</div>
+                        <div>{{ form_row(question.position) }}</div>
 
                         <div class="answers" data-prototype="{{ form_widget(question.answers.vars.prototype)|e('html_attr') }}">
                         {% for answer in question.answers %}
@@ -45,37 +40,25 @@
                             </div>
                         {% endfor %}
                         </div>
-                        <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">Ajouter une réponse</button>
+                        <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">{% trans %}tutorial.edit.add_answer{% endtrans %}</button>
                     </div>
                 {% endfor %}
-
-                </div>
-
             </div>
+
+            <div class="newQuestionHolder"></div>
+        </section>
+
+        <hr/>
+
+        <div class="registerFormQuestion">
+            <a href="{{ path('tutorial_list') }}">{% trans %}tutorial.edit.back{% endtrans %}</a>
+            {{ form_row(tutorialForm.submit) }}
         </div>
+
     </div>
 
-    <div class="col-xl-4 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>Options</h2>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="md-col-6">
-                        {{ form_row(tutorialForm.submit) }}
-                    </div>
-                    <div class="md-col-6">
-                        <a href="{{ path('tutorial_list') }}" class="link-create">Retour</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{ form_end(tutorialForm) }}
+    {{ form_end(tutorialForm) }}
+
 {% endblock %}
 
 {% block javascripts %}

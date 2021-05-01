@@ -5,14 +5,14 @@
         <div class="card card-default card-shadow">
             <div class="card-header">
                 <div class="card-title">
-                    <h2>Les tutoriels</h2>
+                    <h2>{% trans %}user.my_tutorials.my_tutorials{% endtrans %}</h2>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Titres</th>
+                            <th>{% trans %}user.my_tutorials.title{% endtrans %}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -20,7 +20,7 @@
                     {% for tutorial in tutorials %}
                         <tr>
                             <td>{{ tutorial.title|raw }}</td>
-                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">Modifier</a></td>
+                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">{% trans %}user.my_tutorials.edit{% endtrans %}</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

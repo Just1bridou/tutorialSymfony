@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Tutorial;
 use App\Entity\PostLike;
+use App\Form\CommentType;
 use App\Form\TutorialType;
 use App\Manager\ScoreManager;
 use App\Repository\PostLikeRepository;
@@ -52,7 +54,7 @@ class TutorialController extends AbstractController
      */
     public function create(Request $request, Security $security): Response
     {
-        //$this->denyAccessUnlessGranted('tuto_create', $security->getUser());
+        $this->denyAccessUnlessGranted('tuto_create', $security->getUser());
 
         $tutorial = new Tutorial();
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
@@ -124,13 +126,32 @@ class TutorialController extends AbstractController
      * Voir un tutoriel
      *
      * @param Tutorial      $tutorial
+     * @param Request       $request
+     * @param Security      $security
      *
      * @return Response
      */
-    public function view(Tutorial $tutorial): Response
+    public function view(Tutorial $tutorial, Request $request, Security $security): Response
     {
+        $comment = new Comment();
+        $commentForm = $this->createForm(CommentType::class, $comment);
+
+        $commentForm->handleRequest($request);
+        if ($commentForm->isSubmitted() && $commentForm->isValid()){
+            $comment->setCreatedAt(new \DateTime())
+                    ->setTutorial($tutorial)
+                    ->setAuthor($security->getUser());
+
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($comment);
+            $manager->flush();
+    
+            return $this->redirectToRoute('tutorial_view', ['id' => $tutorial->getId()]);
+        }
+
         return $this->render('tutorial/view.html.twig', [
             'tutorial' => $tutorial,
+            'commentForm' => $commentForm->createView(),
         ]);
     }
 
@@ -147,7 +168,7 @@ class TutorialController extends AbstractController
      */
     public function quiz(Tutorial $tutorial, Request $request): Response
     {
-        $this->denyAccessUnlessGranted('tuto_create', $tutorial->getAuthor());
+        $this->denyAccessUnlessGranted('tuto_play', $tutorial->getAuthor());
 
         return $this->render('tutorial/quiz.html.twig', [
             'tutorial' => $tutorial,

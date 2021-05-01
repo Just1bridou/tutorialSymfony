@@ -15,11 +15,12 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('content', TextType::class, [
-                'label' => 'Réponse',
-                'attr' => ['class' => 'form-control'],
+                'label' => false,
+                'attr' => ['class' => 'form-control',
+                    'placeholder' => 'form.answer.answer'],
             ])
             ->add('isCorrect', ChoiceType::class, [
-                'label' => 'Cette réponse est correcte',
+                'label' => 'form.answer.is_correct',
                 'choices'  => [
                     'Oui' => true,
                     'Non' => false,

@@ -38,16 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
             "id_tuto": idTuto,
             "quiz": responseQuiz
         }
-        
-        console.log(ajaxSend)
 
         $.ajax({
             method: "POST",
             url: '/tutorial/response/ajax',
             data: ajaxSend,
-            success: function(reponse){
+            success: function(response){
                 location.href = redirectTo;
             }
         });
     })
+
+    var quizForm = document.querySelector('.quizForm')
+    var answersBloc = quizForm.querySelectorAll('.answerBloc')
+
+    for(let bloc of answersBloc) {
+        let name = bloc.querySelector('.answerName')
+        let input = bloc.querySelector('.answerValue')
+
+        name.addEventListener('click', () => {
+            name.classList.toggle('selectAnswer')
+            input.checked = !input.checked
+        })
+    }
+
 })
