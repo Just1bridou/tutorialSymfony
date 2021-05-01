@@ -56,3 +56,9 @@ homepage:
   your: your
   profile: profile
   discover: Discover!
+category:
+  categories: Categories
+  tutorials: Tutorials
+  back: Back on the category
+  back_on_start: Back on start
+  

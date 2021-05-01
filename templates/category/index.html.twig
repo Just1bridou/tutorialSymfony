@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categories{% endblock %}
+{% block title %}{% trans %}category.categories{% endtrans %}{% endblock %}
 
 {% block body %}
     <section class="mainContent">
@@ -9,7 +9,7 @@
 
             <section class="secondContent elementCase">
 
-                <h2 class="text-center p-3 text-uppercase">Categories</h2>
+                <h2 class="text-center p-3 text-uppercase">{% trans %}category.categories{% endtrans %}</h2>
 
                 {% for category in categories %}
 
@@ -25,7 +25,7 @@
 
                     <div class="elementCase">
 
-                        <h3>Tutorials</h3>
+                        <h3>{% trans %}category.tutorials{% endtrans %}</h3>
 
                         <div class="tutorialsContent">
                             {% for tutorial in tutorials %}
@@ -55,9 +55,9 @@
 
                 {# cas où a parent #}
                 {% if currentCategory.categoryParent is defined and currentCategory.categoryParent is not null %}
-                    <a href="{{ path('category_show', {'id': currentCategory.categoryParent.id}) }}">Retour sur la catégorie {{ currentCategory.categoryParent.content }}</a>
+                    <a href="{{ path('category_show', {'id': currentCategory.categoryParent.id}) }}">{% trans %}category.back{% endtrans %} {{ currentCategory.categoryParent.content }}</a>
                 {% elseif currentCategory is defined and currentCategory is not null %}
-                    <a href="{{ path('category_list') }}">Retour au départ</a>
+                    <a href="{{ path('category_list') }}">{% trans %}category.back_on_start{% endtrans %}</a>
                 {% endif %}
 
         </section>
