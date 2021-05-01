@@ -37,3 +37,22 @@ login:
   logout: Logout
   no_account: You don't have an account yet?
   register: Register
+register:
+  register: Register
+homepage:
+  welcome: Welcome to
+  learn_new: Learn new
+  skills: skills
+  quickly: quickly
+  from: from
+  users_tutorial: user's tutorials
+  create: Create new tutorials
+  for_community: for the community
+  share: Share your
+  knowledge: knowledge
+  win: Win
+  prices: prices
+  upgrade: and upgrade
+  your: your
+  profile: profile
+  discover: Discover!

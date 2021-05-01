@@ -5,7 +5,7 @@
 {% block body %}
 
     <div class="homePageTitle">
-        <span>Welcome to</span>
+        <span>{% trans %}homepage.welcome{% endtrans %}</span>
         <span class="siteName">HowTo?</span>
     </div>
 
@@ -14,13 +14,13 @@
         <div class="homePageBlocText">
             <i class="iconHomePage fas fa-book"></i>
             <div class="homePageBloc homePagePrincipalText">
-                Learn new<br/>
-                <span class="whiteText">SKILLS</span> quickly
+                {% trans %}homepage.learn_new{% endtrans %}<br/>
+                <span class="whiteText">{% trans %}homepage.skills{% endtrans %}</span> {% trans %}homepage.quickly{% endtrans %}
             </div>
 
             <div class="homePageBloc transparentText">
-                Learn new skills from<br/>
-                user's tutorials
+                {% trans %}homepage.learn_new{% endtrans %} {% trans %}homepage.skills{% endtrans %} {% trans %}homepage.from{% endtrans %}<br/>
+                {% trans %}homepage.users_tutorial{% endtrans %}
             </div>
         </div>
 
@@ -31,14 +31,14 @@
 
         <div class="homePageBlocText">
             <div class="homePageBloc transparentText">
-                Create new tutorials<br/>
-                for the community
+                {% trans %}homepage.create{% endtrans %}<br/>
+                {% trans %}homepage.for_community{% endtrans %}
             </div>
 
             <i class="iconHomePage fas fa-user-friends"></i>
             <div class="homePageBloc homePagePrincipalText">
-                Share your<br/>
-                </p><span class="whiteText">KNOWLEDGE</span>
+                {% trans %}homepage.share{% endtrans %}<br/>
+                </p><span class="whiteText">{% trans %}homepage.knowledge{% endtrans %}</span>
             </div>
         </div>
 
@@ -50,14 +50,14 @@
             <div class="homePageBloc text-center">
                 <i class="iconHomePageCrown fas fa-crown"></i>
                 <div class="homePagePrincipalText">
-                    <span class="goldText">WIN</span> price<br/>
-                    and upgrade<br/>
-                    your <span class="whiteText">PROFILE</span>
+                    <span class="goldText">{% trans %}homepage.win{% endtrans %}</span> {% trans %}homepage.prices{% endtrans %}<br/>
+                    {% trans %}homepage.upgrade{% endtrans %}<br/>
+                    {% trans %}homepage.your{% endtrans %} <span class="whiteText">{% trans %}homepage.profile{% endtrans %}</span>
                 </div>
             </div>
         </div>
 
-        <a class="homePageButton" href="{{ path("tutorial_list")}}">DISCOVER</a>
+        <a class="homePageButton" href="{{ path("tutorial_list")}}">{% trans %}homepage.discover{% endtrans %}</a>
 
     </section>
 

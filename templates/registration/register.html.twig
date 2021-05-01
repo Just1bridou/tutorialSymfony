@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{% trans %}register.register{% endtrans %}{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('verify_email_error') %}
@@ -9,7 +9,7 @@
 
 
     <section class="loginPage">
-        <h1>S'enregistrer</h1>
+        <h1>{% trans %}register.register{% endtrans %}</h1>
         <div class="form">
 
             <div>{{ form_start(registrationForm) }}</div>

@@ -38,3 +38,22 @@ login:
   logout: Se déconnecter
   no_account: Vous n'avez pas encore de compte?
   register: S'enregistrer
+register:
+  register: S'enregistrer
+homepage:
+  welcome: Bienvenue sur
+  learn_new: Apprends de nouvelles
+  skills: compétences
+  quickly: rapidement
+  from: provenant des
+  users_tutorial: tutoriels écrits par les autres utilisateurs
+  create: Créer de nouveaux tutoriels
+  for_community: pour la communauté
+  share: Partage ton
+  knowledge: savoir
+  win: Remporte
+  prices: des prix
+  upgrade: et améliore
+  your: ton
+  profile: profil
+  discover: C'est parti!
