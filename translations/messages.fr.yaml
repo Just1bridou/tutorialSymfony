@@ -62,4 +62,11 @@ category:
   tutorials: Tutoriels
   back: Retour sur la catégorie
   back_on_start: Retour au départ
-  
+form:
+  tutorial:
+    title: Titre
+    publish_now: Le publier maintenant?
+    yes: Oui
+    no: Non
+    category: Catégorie
+    register: Enregistrer

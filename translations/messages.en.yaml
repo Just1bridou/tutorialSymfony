@@ -61,4 +61,13 @@ category:
   tutorials: Tutorials
   back: Back on the category
   back_on_start: Back on start
+form:
+  tutorial:
+    title: Title
+    publish_now: Publish it now?
+    yes: Yes
+    no: No
+    category: Category
+    register: Register
+
   
