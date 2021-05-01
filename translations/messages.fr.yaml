@@ -110,3 +110,6 @@ form:
   answer:
     answer: Réponse
     is_correct: Cette réponse est correcte
+  comment:
+    content: Commentaire
+    save: Enregistrer
