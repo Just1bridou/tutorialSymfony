@@ -23,3 +23,12 @@ tutorial:
     author: Auteur
     questions: Les questions
     save: Enregistrer mes réponses
+  edit:
+    tutorials: Tutoriels
+    new: Nouveau tutoriel
+    in_markdown: Vous pouvez écrire votre tutoriel en Markdown
+    markdown_guide: Guide Markdown
+    questions: Les questions
+    add_answer: Ajouter une réponse
+    options: Options
+    back: Retour

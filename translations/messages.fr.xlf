@@ -85,6 +85,38 @@
         <source>tutorial.quiz.save</source>
         <target>Enregistrer mes réponses</target>
       </trans-unit>
+      <trans-unit id="l8bR84Q" resname="tutorial.edit.tutorials">
+        <source>tutorial.edit.tutorials</source>
+        <target>Tutoriels</target>
+      </trans-unit>
+      <trans-unit id="BcDDA_7" resname="tutorial.edit.new">
+        <source>tutorial.edit.new</source>
+        <target>Nouveau tutoriel</target>
+      </trans-unit>
+      <trans-unit id="iIprfwl" resname="tutorial.edit.in_markdown">
+        <source>tutorial.edit.in_markdown</source>
+        <target>Vous pouvez écrire votre tutoriel en Markdown</target>
+      </trans-unit>
+      <trans-unit id="Sa94n_U" resname="tutorial.edit.markdown_guide">
+        <source>tutorial.edit.markdown_guide</source>
+        <target>Guide Markdown</target>
+      </trans-unit>
+      <trans-unit id="9HjFELB" resname="tutorial.edit.questions">
+        <source>tutorial.edit.questions</source>
+        <target>Les questions</target>
+      </trans-unit>
+      <trans-unit id="jLP4tfj" resname="tutorial.edit.add_answer">
+        <source>tutorial.edit.add_answer</source>
+        <target>Ajouter une réponse</target>
+      </trans-unit>
+      <trans-unit id="h1REsoF" resname="tutorial.edit.options">
+        <source>tutorial.edit.options</source>
+        <target>Options</target>
+      </trans-unit>
+      <trans-unit id="bHY_i53" resname="tutorial.edit.back">
+        <source>tutorial.edit.back</source>
+        <target>Retour</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

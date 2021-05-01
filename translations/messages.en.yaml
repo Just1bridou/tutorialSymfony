@@ -23,4 +23,11 @@ tutorial:
     author: Author
     questions: Questions
     save: Save my answers
-    
+  edit:
+    new: New tutorial
+    in_markdown: Writing in Markdown is possible in this form
+    markdown_guide: Markdown guide
+    questions: Questions
+    add_answer: Add an answer
+    options: Options
+    back: Back
