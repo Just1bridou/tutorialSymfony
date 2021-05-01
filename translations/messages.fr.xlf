@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2gLtlKj" resname="navbar.tutorials">
+        <source>navbar.tutorials</source>
+        <target>Tutoriels</target>
+      </trans-unit>
+      <trans-unit id="gwlY3L8" resname="navbar.my_account">
+        <source>navbar.my_account</source>
+        <target>Mon compte</target>
+      </trans-unit>
+      <trans-unit id="I5qdD7E" resname="navbar.login">
+        <source>navbar.login</source>
+        <target>Se connecter</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
