@@ -93,6 +93,11 @@ class Tutorial
      */
     private $seeLikes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PostBookMark::class, mappedBy="post")
+     */
+    private $seeBookMarks;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -101,6 +106,7 @@ class Tutorial
         $this->bookmarks = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->seeLikes = new ArrayCollection();
+        $this->seeBookMarks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -403,6 +409,51 @@ class Tutorial
     public function isLikedByUser(User $user) : bool {
         foreach($this->seeLikes as $like){
             if($like->getUser() === $user) return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * @return Collection|PostBookMark[]
+     */
+    public function getSeeBookMarks(): Collection
+    {
+        return $this->seeBookMarks;
+    }
+
+    public function addSeeBookMark(PostBookMark $seeBookMark): self
+    {
+        if (!$this->seeBookMarks->contains($seeBookMark)) {
+            $this->seeBookMarks[] = $seeBookMark;
+            $seeBookMark->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeeBookMark(PostBookMark $seeBookMark): self
+    {
+        if ($this->seeBookMarks->removeElement($seeBookMark)) {
+            // set the owning side to null (unless already changed)
+            if ($seeBookMark->getPost() === $this) {
+                $seeBookMark->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+    
+     /**
+     * Permet de savoir si ce tuto est "bokmarké" par un utilisateur
+     * 
+     * @param User $user
+     * @return boolean
+     */
+    public function isBookMarkedByUser(User $user) : bool
+    {
+        foreach ($this->seeBookMarks as $bookmark){
+            if ($bookmark->getUser() === $user) return true;
         }
         return false;
     }
