@@ -6,6 +6,26 @@
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
     <h4 id="TutoViewAuthor" > {% trans %}tutorial.quiz.author{% endtrans %}: {{ tutorial.author.username }}</h4>
 
+<<<<<<< HEAD
+
+    <form class="quizForm" tuto-id={{ tutorial.id }}>
+        <div><h2>{% trans %}tutorial.quiz.questions{% endtrans %}</h2></div>
+
+        {% for question in tutorial.questions %}
+
+            <div class="questionBloc question-type">
+                <div class="questionName" id="{{ question.id }}">{{ question.content }}</div>
+                <hr>
+                {% for answer in question.answers %}
+                    <div class="answerBloc answer">
+                        <h3 class="answerName">{{ answer.content }}</h3>
+                        <div class="input">
+                            <input class="answerValue" type="checkbox" id="{{ answer.id }}" name="{{ answer.id }}">
+                        </div>
+                    </div>
+                {% endfor %}
+
+=======
     <div class="col-xl-12 col-md-8">
         <div class="card card-default card-shadow">
             <div class="card-header">
@@ -29,9 +49,13 @@
                 {% endfor %}
             </form>
                 <input class="submitQuiz" type="submit" value="{% trans %}tutorial.quiz.save{% endtrans %}">
+>>>>>>> 5152334e574c5641f7c799e90f8e0d08856349cf
             </div>
-        </div>
-    </div>
+
+        {% endfor %}
+
+        <button class="submitQuiz">Enregistrer mes réponses</button>
+    </form>
 
     {% block javascript %}
         <script src="{{ asset('assets/js/quiz.js') }}"></script>

@@ -18,6 +18,11 @@
     src: url("../fonts/AVENIR/AvenirNextLTPro-MediumCn.otf");
 }
 
+@font-face {
+    font-family: "avenirReg";
+    src: url("../fonts/AVENIR/AvenirNextLTPro-Regular.otf");
+}
+
 *{
     outline: none;
 }
@@ -555,7 +560,6 @@ footer div {
 
 .alreadyLogged span {
     color: gold;
-    text-transform:capitalize;
 }
 
 .alreadyLogged a {
@@ -635,4 +639,257 @@ footer div {
     z-index: -1;
   /*  border-top: 2px solid black;
     border-left: 2px solid black;*/
+}
+
+/* QUIZ */
+
+.playQuiz {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    left: 10%;
+   /* transform: translateX(-50%);*/
+    font-family: 'avenirBold';
+    margin-top: 100px;
+    line-height: 60px;
+}
+
+.playQuiz h3 {
+    font-size: 50px;
+    color: white;
+}
+
+.playQuiz a {
+    position: relative;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    background-color: #a557f3;
+    border: none;
+    margin-top: 50px;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.playQuiz a:hover {
+    filter: brightness(70%);
+}
+
+.quizForm {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    font-family: 'avenirBold';
+}
+
+.quizForm h2 {
+    margin-top: unset;
+    margin-bottom: unset;
+    line-height: unset;
+    padding: 20px 0 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 70px;
+}
+
+.questionBloc {
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    font-size: 25px;
+    border-top: 10px solid gold;
+    text-transform: capitalize;
+    margin-top: 50px;
+}
+
+.answerBloc {
+    margin-top: 30px;
+    font-family: 'avenirReg';
+    position: relative;
+}
+
+.answerBloc .answerName {
+   /* position: absolute;*/
+    position: relative;
+    width: auto;
+    padding: 3px 12px 3px 12px;
+    border: 2px solid black;
+    transition: 0.04s all ease-in-out;
+}
+
+.answerBloc .answerName:hover {
+    cursor: pointer;
+}
+
+.answerBloc .input {
+   display: none;
+}
+
+.selectAnswer {
+    background-color: gold;
+    border-color: gold !important;
+}
+
+.submitQuiz {
+    font-size: 30px;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    background-color: gold;
+    border: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submitQuiz:hover {
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+/* QUESTIONS FORM */
+
+.questions {
+    position: relative;
+    width: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'avenirBold';
+    margin-top: 200px;
+}
+
+.questions h2 {
+    font-size: 70px;
+}
+
+.questions i {
+    font-size: 20px;
+    color: rgba(238, 238, 238, 0.76);
+}
+
+.addQuestionButton {
+    font-size: 30px;
+    color: white;
+    padding: 15px 50px 15px 50px;
+    background-color: rgb(68, 0, 255);
+    border: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 100px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.questions hr {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    height: 5px;
+}
+
+.questions input[type="text"] {
+    border-radius: 100px;
+    font-size: 20px;
+    padding: 10px 30px 10px 30px;
+    border: none;
+    margin-top: 10px;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.answerBlocQuestionForm {
+    margin: 30px;
+    padding: 30px;
+    background-color: rgba(189, 189, 189, 0.4);
+    border-radius: 5px;
+}
+
+.answerBlocQuestionForm input[type="text"] {
+    margin-bottom: 30px;
+}
+
+.answerBlocQuestionForm label {
+    font-size: 20px;
+}
+
+.answerBlocQuestionForm>div>div {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.radioDiv input{
+    margin-right: 20px;
+}
+
+.removeAnswerButton {
+    font-size: 15px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(255, 75, 75);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+}
+
+.addAnswerButton {
+    font-size: 15px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(76, 0, 255);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+    margin-right: 30px;
+}
+
+.registerFormQuestion {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.submitFormQuestions {
+    font-size: 25px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(76, 0, 255);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
+    margin-right: 30px;
+}
+
+.registerFormQuestion a {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    background-color: rgb(255, 75, 75);
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    transition: 0.1s all ease-in-out;
+    box-shadow: 10px 10px 15px 0px rgb(0 0 0 / 48%);
 }

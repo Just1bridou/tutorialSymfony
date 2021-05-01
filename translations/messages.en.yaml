@@ -30,6 +30,7 @@ tutorial:
     in_markdown: Writing in Markdown is possible in this form
     markdown_guide: Markdown guide
     questions: Questions
+    indications: Quizz is evaluating the user's knowledges about your tutorial. Its not obligatory.
     add_answer: Add an answer
     options: Options
     back: Back

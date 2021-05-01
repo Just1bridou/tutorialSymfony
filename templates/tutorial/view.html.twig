@@ -16,14 +16,20 @@
         {% endapply %}
     </section>
 
-    <div class="elementCase playQuiz">
-        <h3>{% trans %}tutorial.view.test_your_knowledge{% endtrans %}</h3>
+    {% if tutorial.getQuestions().count() > 0 %}
+    <div class="playQuiz">
+        <h3>{% trans %}tutorial.view.test_your_knowledge{% endtrans %}</h3><br>
         {% if app.user %}
         <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">{% trans %}tutorial.view.play_quiz{% endtrans %}</a>
         {% else %}
         <p>{% trans %}tutorial.view.should_be_logged{% endtrans %}: <a href="{{ path('app_login') }}">{% trans %}tutorial.view.login{% endtrans %}</a><p>
         {% endif %}
     </div>
+    {% else %}
+    <div class="playQuiz">
+        <h3>Ce tutoriel ne contient pas de Quiz</h3>
+    </div> 
+    {% endif %}
 
     <div class="elementCase comments">
         {% if app.user %}
