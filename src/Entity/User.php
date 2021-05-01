@@ -103,6 +103,11 @@ class User implements UserInterface
      */
     private $Wallet = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="user")
+     */
+    private $seeLikes;
+
     public function __construct()
     {
         $this->tutorials = new ArrayCollection();
@@ -110,6 +115,7 @@ class User implements UserInterface
         $this->likes = new ArrayCollection();
         $this->bookmarks = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->seeLikes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -403,6 +409,36 @@ class User implements UserInterface
     public function setWallet(float $Wallet): self
     {
         $this->Wallet = $Wallet;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PostLike[]
+     */
+    public function getSeeLikes(): Collection
+    {
+        return $this->seeLikes;
+    }
+
+    public function addSeeLike(PostLike $seeLike): self
+    {
+        if (!$this->seeLikes->contains($seeLike)) {
+            $this->seeLikes[] = $seeLike;
+            $seeLike->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeeLike(PostLike $seeLike): self
+    {
+        if ($this->seeLikes->removeElement($seeLike)) {
+            // set the owning side to null (unless already changed)
+            if ($seeLike->getUser() === $this) {
+                $seeLike->setUser(null);
+            }
+        }
 
         return $this;
     }

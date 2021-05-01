@@ -25,19 +25,4 @@ class CommentCrudController extends AbstractCrudController
             
         ];
     }
-
-    /**
-     * At the creation
-     * 
-     * @param string $entityFqcn
-     * 
-     * @return Comment
-     */
-    public function createEntity(string $entityFqcn): Comment
-    {
-        $comment = new Comment();
-        $comment->setCreatedAt(new \DateTimeImmutable());
-
-        return $comment;
-    }
 }
