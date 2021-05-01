@@ -16,7 +16,7 @@ tutorial:
     author: Author
     created_at: Created at
     last_update: Last update at
-    test_your_knowledge: Testez votre compréhension du tutoriel! Test your tutorial's comprehension!
+    test_your_knowledge: Test your tutorial's comprehension!
     play_quiz: Answer the quiz questions!
     should_be_logged: You should be logged to answer the quiz question
     login: Login
