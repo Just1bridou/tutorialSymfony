@@ -14,6 +14,11 @@
                     <div class="col-md-4"><a href="{{ path('user_scores', {'id': user.id}) }}" class="link-create">My scores</a></div>
                     <div class="col-md-4"><a href="{{ path('app_logout') }}">Logout</a></div>
                     <div class="col-md-4">Your wallet got {{ user.wallet }} point{% if user.wallet > 1 %}s{% endif %}!</div>
+                    {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <div class="row">
+                            <div class="col-md-4"><a href="{{ path('admin') }}">EasyAdmin</a></div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
