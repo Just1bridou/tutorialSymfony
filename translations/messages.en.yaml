@@ -22,6 +22,8 @@ tutorial:
     login: Login
     you_like: Do you like this tutorial?
     like: Like
+    no_quiz: This tutorial do not have Quiz
+    back: Back
   quiz:
     quiz: Quiz
     author: Author
@@ -82,10 +84,13 @@ user:
     tutorial: Tutorial
     score: Score
     date: Date
+    back: Back
   my_tutorials:
     my_tutorials: My tutorials
     title: Title
     edit: Edit
+    create: Create
+    back: Back
   achievement:
     achievements: Achievements
     target_field: Target Field
@@ -93,6 +98,7 @@ user:
     goal: Goal
     edit: Edit
     create: Create
+    back: Back
 form:
   tutorial:
     title: Title

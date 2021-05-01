@@ -25,6 +25,10 @@
                     {% endfor %}
                     </tbody>
                 </table>
+
+                <a href="{{ path('tutorial_create') }}">{% trans %}user.my_tutorials.create{% endtrans %}</a>
+                <a href="{{ path('user_account') }}">{% trans %}user.my_tutorials.back{% endtrans %}</a>
+
             </div>
         </div>
     </div>

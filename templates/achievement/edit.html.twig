@@ -5,4 +5,5 @@
 {% block body %}
 {{ form_start(achievementForm) }}
 {{ form_end(achievementForm) }}
+<a href="{{ path('achievement_list') }}">{% trans %}user.achievement.back{% endtrans %}</a>
 {% endblock %}

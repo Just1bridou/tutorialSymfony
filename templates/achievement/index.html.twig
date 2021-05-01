@@ -30,11 +30,12 @@
                             
                         </tr>
                     {% endfor %}
-
-                    <a href="{{ path('achievement_create') }}">{% trans %}user.achievement.create{% endtrans %}</a>
-
                     </tbody>
                 </table>
+
+                <a href="{{ path('achievement_create') }}">{% trans %}user.achievement.create{% endtrans %}</a>
+                <a href="{{ path('user_account') }}">{% trans %}user.achievement.back{% endtrans %}</a>
+                
             </div>
         </div>
     </div>
