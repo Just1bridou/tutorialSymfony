@@ -3,10 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Tutorial;
+use App\Entity\PostLike;
 use App\Form\TutorialType;
 use App\Manager\ScoreManager;
+use App\Repository\PostLikeRepository;
 use App\Repository\TutorialRepository;
 use App\Repository\ScoreRepository;
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -164,4 +170,51 @@ class TutorialController extends AbstractController
         $scoreManager->SaveScore($request);
         return new JsonResponse(null, Response::HTTP_OK);
     }
+
+
+    #[Route('/post/{id}/like', name: 'post_like')]
+    /**
+     * Permet de liker ou unliker un article
+     * 
+     */
+    public function like(Tutorial $tutorial, EntityManagerInterface $manager, PostLikeRepository $likeRepo) : Response {
+
+        $user = $this->getUser();
+
+        if(!$user) return $this->json([
+            'code' => 403,
+            'message' => "Il faut que vous soyez connecté"
+        ],403);
+
+        if($tutorial->islikedByUser($user)){
+            $like = $likeRepo->findOneBy([
+                'post' => $tutorial,
+                'user' => $user
+            ]);
+
+            $manager->remove($like);
+            $manager->flush();
+
+            return $this->json([
+                'code' => 200,
+                'message' => "Like bien supprimé",
+                'seeLikes' => $likeRepo->count(['post'=>$tutorial])
+            ],200);
+        }
+
+
+        $like = new PostLike();
+        $like->setPost($tutorial)
+             ->setUser($user);
+        
+        $manager->persist($like);
+        $manager->flush();
+
+        return $this->json([
+            'code' => 200,
+            'message' => "Like bien ajouté",
+            'seeLikes' => $likeRepo->count(['post'=>$tutorial])
+        ],200);
+    }
+
 }

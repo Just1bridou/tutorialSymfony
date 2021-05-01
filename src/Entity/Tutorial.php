@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
+
 use App\Repository\TutorialRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -86,6 +88,11 @@ class Tutorial
      */
     private $editedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="post")
+     */
+    private $seeLikes;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -93,6 +100,7 @@ class Tutorial
         $this->likes = new ArrayCollection();
         $this->bookmarks = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->seeLikes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -354,5 +362,48 @@ class Tutorial
     public function __toString(): string
     {
         return $this->getTitle();
+    }
+
+    /**
+     * @return Collection|PostLike[]
+     */
+    public function getSeeLikes(): Collection
+    {
+        return $this->seeLikes;
+    }
+
+    public function addSeeLike(PostLike $seeLike): self
+    {
+        if (!$this->seeLikes->contains($seeLike)) {
+            $this->seeLikes[] = $seeLike;
+            $seeLike->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeeLike(PostLike $seeLike): self
+    {
+        if ($this->seeLikes->removeElement($seeLike)) {
+            // set the owning side to null (unless already changed)
+            if ($seeLike->getPost() === $this) {
+                $seeLike->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet de savoir si cet article est liker par un utilisateur
+     * 
+     * @param User $user
+     * @return boolean
+     */
+    public function isLikedByUser(User $user) : bool {
+        foreach($this->seeLikes as $like){
+            if($like->getUser() === $user) return true;
+        }
+        return false;
     }
 }

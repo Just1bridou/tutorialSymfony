@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Tutorial;
 use App\Entity\Category;
+use App\Entity\Like;
 use App\Form\QuestionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
