@@ -8,20 +8,23 @@
         <div class="column"> 
             <h4 id="TutoViewAuthor" > {% trans %}tutorial.view.author{% endtrans %}: {{ tutorial.author }}</h4>
             <p class="TutoViewdate" > {% trans %}tutorial.view.created_at{% endtrans %}: {{ tutorial.createdAt|date("d/m/Y") }}</p>
-        </div>
 
-
-        <div class="LikeButton" > Do you like this tutorial ? 
-            <a href="{{ path('tutorial_post_like',{'id' : tutorial.id}) }}" class="btn btn-link js-like">
-            {% if app.user and tutorial.isLikedByUser(app.user) %}
-                <i class="fas fa-thumbs-up"></i>
-            {% else %}
-                <i class="far fa-thumbs-up"></i>
+            {% if app.user %}
+                <p class="LikeButton" > {% trans %}tutorial.view.you_like{% endtrans %}
+                    <a href="{{ path('tutorial_post_like',{'id' : tutorial.id}) }}" class="btn btn-link js-like">
+                    {% if app.user and tutorial.isLikedByUser(app.user) %}
+                        <i class="fas fa-thumbs-up"></i>
+                    {% else %}
+                        <i class="far fa-thumbs-up"></i>
+                    {% endif %}
+                        <span class="js-likes">{{ tutorial.seeLikes | length }}</span>
+                        <span class="js-label">{% trans %}tutorial.view.like{% endtrans %}</span>
+                    </a> 
+                </p>
             {% endif %}
-                <span class="js-likes">{{ tutorial.seeLikes | length }}</span>
-                <span class="js-label">J'aime</span>
-            </a> 
+
         </div>
+    </div>
 
          <div class="BookMarkButton" >
             <a href="{{ path('tutorial_post_bookMark',{'id' : tutorial.id}) }}" class="btn btn-linkBM js-bookMark">
@@ -33,7 +36,7 @@
             </a> 
         </div>
 
-    </div>
+  
    
    
     {% if tutorial.editedAt != null %}

@@ -6,7 +6,6 @@
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
     <h4 id="TutoViewAuthor" > {% trans %}tutorial.quiz.author{% endtrans %}: {{ tutorial.author.username }}</h4>
 
-<<<<<<< HEAD
 
     <form class="quizForm" tuto-id={{ tutorial.id }}>
         <div><h2>{% trans %}tutorial.quiz.questions{% endtrans %}</h2></div>
@@ -25,36 +24,11 @@
                     </div>
                 {% endfor %}
 
-=======
-    <div class="col-xl-12 col-md-8">
-        <div class="card card-default card-shadow">
-            <div class="card-header">
-                <div class="card-title">
-                    <h2>{% trans %}tutorial.quiz.questions{% endtrans %}</h2>
-                </div>
-            </div>
-            <form class="card-body quizForm" tuto-id={{ tutorial.id }}>
-                {% for question in tutorial.questions %}
-                    <div class="row question-type">
-                        <div class="questionName col-md-10" id="{{ question.id }}">{{ question.content }}</div>
-                        {% for answer in question.answers %}
-                            <div class="answer row answer-type">
-                                <div class="answerName col-md-8">{{ answer.content }}</div>
-                                <div class="col-md-4">
-                                    <input class="answerValue" type="checkbox" id="{{ answer.id }}" name="{{ answer.id }}">
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            </form>
-                <input class="submitQuiz" type="submit" value="{% trans %}tutorial.quiz.save{% endtrans %}">
->>>>>>> 5152334e574c5641f7c799e90f8e0d08856349cf
             </div>
 
         {% endfor %}
 
-        <button class="submitQuiz">Enregistrer mes réponses</button>
+        <button class="submitQuiz">{% trans %}tutorial.quiz.save{% endtrans %}</button>
     </form>
 
     {% block javascript %}

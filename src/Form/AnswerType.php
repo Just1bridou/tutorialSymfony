@@ -22,8 +22,8 @@ class AnswerType extends AbstractType
             ->add('isCorrect', ChoiceType::class, [
                 'label' => 'form.answer.is_correct',
                 'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
+                    'form.answer.yes' => true,
+                    'form.answer.no' => false,
                 ],
                 'expanded' => true,
                 'attr' => ['class' => 'form-check form-control'],

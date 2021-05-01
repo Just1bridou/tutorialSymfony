@@ -59,6 +59,17 @@
 
     {{ form_end(tutorialForm) }}
 
+    <section class="displayNone">
+        <div data-id="add_question">{% trans %}form.js_answer.add_question{% endtrans %}</div>
+        <div data-id="answer">{% trans %}form.js_answer.answer{% endtrans %}</div>
+        <div data-id="correct_answer">{% trans %}form.js_answer.correct_answer{% endtrans %}</div>
+        <div data-id="yes">{% trans %}form.js_answer.yes{% endtrans %}</div>
+        <div data-id="no">{% trans %}form.js_answer.no{% endtrans %}</div>
+        <div data-id="remove_answer">{% trans %}form.js_answer.remove_answer{% endtrans %}</div>
+        <div data-id="add_answer">{% trans %}form.js_answer.add_answer{% endtrans %}</div>
+        <div data-id="remove_question">{% trans %}form.js_answer.remove_question{% endtrans %}</div>
+    </section>
+
 {% endblock %}
 
 {% block javascripts %}

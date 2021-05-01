@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}user.achievement.achievements{% endtrans %}{% endblock %}
+
+{% block body %}
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>{% trans %}user.achievement.achievements{% endtrans %}</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{% trans %}user.achievement.target_field{% endtrans %}</th>
+                            <th>{% trans %}user.achievement.mathematical_operator{% endtrans %}</th>
+                            <th>{% trans %}user.achievement.goal{% endtrans %}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for achievement in achievements %}
+                        <tr>
+                            <td>{{ achievement.targetField|raw }}</td>
+                            <td>{{ achievement.mathematicalOperator|raw }}</td>
+                            <td>{{ achievement.goal|raw }}</td>
+                            <td><a href="{{ path('achievement_edit', {'id': achievement.id}) }}">{% trans %}user.achievement.edit{% endtrans %}</a></td>
+                            
+                        </tr>
+                    {% endfor %}
+
+                    <a href="{{ path('achievement_create') }}">{% trans %}user.achievement.create{% endtrans %}</a>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
