@@ -37,6 +37,8 @@ login:
   logout: Logout
   no_account: You don't have an account yet?
   register: Register
+  username: Username
+  password: Password
 register:
   register: Register
 homepage:
@@ -85,5 +87,7 @@ form:
   question:
     position: Position
     question: Question
-
+  answer:
+    answer: Answer
+    is_correct: This answer is correct
   

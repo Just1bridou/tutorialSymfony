@@ -38,6 +38,8 @@ login:
   logout: Se déconnecter
   no_account: Vous n'avez pas encore de compte?
   register: S'enregistrer
+  username: Nom de compte
+  password: Mot de passe
 register:
   register: S'enregistrer
 homepage:
@@ -86,3 +88,6 @@ form:
   question:
     position: Position
     question: Question
+  answer:
+    answer: Réponse
+    is_correct: Cette réponse est correcte
