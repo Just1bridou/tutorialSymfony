@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded',() => {
-
     //var questionsCollectionHolder = document.querySelector('.questions')
     var questionsCollectionHolder = document.querySelector('.questionsHolder')
-
     // Add New Question Button
-    var addQuestionButton = _('button', document.querySelector('.newQuestionHolder'), "Ajouter une question", null, "addQuestionButton")
+    var addQuestionButton = _('button', document.querySelector('.newQuestionHolder'), getId("add_question"), null, "addQuestionButton")
     
     // Set Index to questionsCollectionHolder
     setNewIndex(questionsCollectionHolder)
@@ -25,9 +23,15 @@ document.addEventListener('DOMContentLoaded',() => {
     })
 })
 
+function getId(name) {
+    var traduction = document.querySelector('.displayNone')
+    let e = traduction.querySelector('[data-id="' + name + '"]')
+    return e.innerText
+}
+
 function addNewAnswer(elem, questionIndex) {
     
-    let addAnswerButton = _('button', elem.parentNode, "Ajouter une réponse", null, "addAnswerButton")
+    let addAnswerButton = _('button', elem.parentNode, getId("add_answer"), null, "addAnswerButton")
     addAnswerButton.addEventListener('click', (e) => {
         setNewIndex(elem)
         createResponseForm(elem, questionIndex)
@@ -35,7 +39,7 @@ function addNewAnswer(elem, questionIndex) {
         e.preventDefault()
     })
 
-    var addQuestionButton = _('button', elem.parentNode, "Supprimer la question", null, "removeAnswerButton")
+    var addQuestionButton = _('button', elem.parentNode, getId("remove_question"), null, "removeAnswerButton")
     addQuestionButton.addEventListener('click', (e) => {
         elem.parentNode.parentNode.remove()
         e.preventDefault()
@@ -64,12 +68,12 @@ function createResponseForm(elem, questionIndex) {
     inputAnswer.type = "text"
     inputAnswer.name = "tutorial[questions][" + questionIndex + "][answers]["+ elem.getAttribute('data-index') +"][content]"
     inputAnswer.required = true
-    inputAnswer.placeholder = "Réponse"
+    inputAnswer.placeholder = getId('answer')
 
     let formCheckbox = _('div', totalForm)
 
     // ANSWER CORRECT ?
-    let labelCorrectAnswer = _('label', formCheckbox, "Réponse correcte ?", null, "required")
+    let labelCorrectAnswer = _('label', formCheckbox, getId("correct_answer"), null, "required")
 
     let radioDiv = _('div', formCheckbox, null, "tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect", "form-check")
     radioDiv.classList.add('form-control')
@@ -83,7 +87,7 @@ function createResponseForm(elem, questionIndex) {
     inputYes.required = true
     inputYes.value = 1
 
-    let labelYes = _('label', contentYes, "Oui", null, "required")
+    let labelYes = _('label', contentYes, getId("yes"), null, "required")
     labelYes.setAttribute('for',"tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect_0")
 
     let contentNo = _('div', radioDiv, null, null, 'radioDiv')
@@ -94,11 +98,11 @@ function createResponseForm(elem, questionIndex) {
     inputNo.required = true
     inputNo.value = 0
 
-    let labelNo = _('label', contentNo, "Non", null, "required")
+    let labelNo = _('label', contentNo, getId("no"), null, "required")
     labelNo.setAttribute("for","tutorial_questions_" + questionIndex + "_answers_" + elem.getAttribute('data-index') + "_isCorrect_1")
  
 
-    let removeButton = _('button', totalForm, "Supprimer cette réponse", null, "removeAnswerButton")
+    let removeButton = _('button', totalForm, getId("remove_answer"), null, "removeAnswerButton")
 
     removeButton.addEventListener('click', () => {
         totalForm.remove()
