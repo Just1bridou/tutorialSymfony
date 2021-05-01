@@ -86,7 +86,6 @@ final class Version20210430055930 extends AbstractMigration
         $this->addSql('DROP TABLE __temp__tutorial');
         $this->addSql('CREATE INDEX IDX_C66BFFE912469DE2 ON tutorial (category_id)');
         $this->addSql('CREATE INDEX IDX_C66BFFE9F675F31B ON tutorial (author_id)');
-        $this->addSql('ALTER TABLE user ADD COLUMN wallet DOUBLE PRECISION NOT NULL');
     }
 
     public function down(Schema $schema) : void

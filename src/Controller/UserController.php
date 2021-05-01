@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\ScoreRepository;
 use App\Repository\TutorialRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,17 +40,32 @@ class UserController extends AbstractController
      * Affiche le tableau de bord de ses tutoriels
      * 
      * @param User                  $user
-     * @param Security              $security
      * @param TutorialRepository    $tutorialRepository
      * 
      * @return Reponse
      */
-    public function show_tutorials(User $user, Security $security, TutorialRepository $tutorialRepository): Response
+    public function show_tutorials(User $user, TutorialRepository $tutorialRepository): Response
     {
         $this->denyAccessUnlessGranted('tuto_dashboard', $user);
 
         return $this->render('user/my_tutorials.html.twig', [
             'tutorials' => $tutorialRepository->findBy(['author' => $user]),
+        ]);
+    }
+
+    #[Route('/scores/{id}', name: "scores")]
+    /**
+     * Display the list of user's scores
+     * 
+     * @param User                  $user
+     * @param ScoreRepository       $scoreRepository
+     * 
+     * @return Reponse
+     */
+    public function show_scores(User $user, ScoreRepository $scoreRepository): Response
+    {
+        return $this->render('user/my_scores.html.twig', [
+            'scores' => $scoreRepository->findBy(['learner' => $user]),
         ]);
     }
 }

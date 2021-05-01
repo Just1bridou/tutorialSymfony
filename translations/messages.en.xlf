@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="2gLtlKj" resname="navbar.tutorials">
+        <source>navbar.tutorials</source>
+        <target>Tutorials</target>
+      </trans-unit>
+      <trans-unit id="gwlY3L8" resname="navbar.my_account">
+        <source>navbar.my_account</source>
+        <target>My account</target>
+      </trans-unit>
+      <trans-unit id="I5qdD7E" resname="navbar.login">
+        <source>navbar.login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="Tcx7fqF" resname="tutorial.index.ten_last">
+        <source>tutorial.index.ten_last</source>
+        <target>The 10 last tutorials</target>
+      </trans-unit>
+      <trans-unit id="ApRX82f" resname="tutorial.index.looking_for_a_tutorial">
+        <source>tutorial.index.looking_for_a_tutorial</source>
+        <target>Are you looking for a specific tutorial?</target>
+      </trans-unit>
+      <trans-unit id="JdFl1_x" resname="tutorial.index.share_tutorial">
+        <source>tutorial.index.share_tutorial</source>
+        <target>Do you want to share your knowdlegde?</target>
+      </trans-unit>
+      <trans-unit id="69rgRV9" resname="tutorial.index.create">
+        <source>tutorial.index.create</source>
+        <target>Create a tutorial!</target>
+      </trans-unit>
+      <trans-unit id="NFGkcv2" resname="tutorial.index.see_more">
+        <source>tutorial.index.see_more</source>
+        <target>Do you want to see our others tutorials?</target>
+      </trans-unit>
+      <trans-unit id="SyLoxPQ" resname="tutorial.index.categories">
+        <source>tutorial.index.categories</source>
+        <target>Check the categories</target>
+      </trans-unit>
+      <trans-unit id="bN9UOUJ" resname="tutorial.view.author">
+        <source>tutorial.view.author</source>
+        <target>Author</target>
+      </trans-unit>
+      <trans-unit id="EXpd8gJ" resname="tutorial.view.created_at">
+        <source>tutorial.view.created_at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="yHm06lP" resname="tutorial.view.last_update">
+        <source>tutorial.view.last_update</source>
+        <target>Last update at</target>
+      </trans-unit>
+      <trans-unit id="fu1DFW2" resname="tutorial.view.test_your_knowledge">
+        <source>tutorial.view.test_your_knowledge</source>
+        <target>Testez votre compréhension du tutoriel! Test your tutorial's comprehension!</target>
+      </trans-unit>
+      <trans-unit id="SZMUYPV" resname="tutorial.view.play_quiz">
+        <source>tutorial.view.play_quiz</source>
+        <target>Answer the quiz questions!</target>
+      </trans-unit>
+      <trans-unit id="IwNgkFO" resname="tutorial.view.should_be_logged">
+        <source>tutorial.view.should_be_logged</source>
+        <target>You should be logged to answer the quiz question</target>
+      </trans-unit>
+      <trans-unit id="C2vOBsN" resname="tutorial.view.login">
+        <source>tutorial.view.login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="cX5TI1v" resname="tutorial.quiz.quiz">
+        <source>tutorial.quiz.quiz</source>
+        <target>Quiz</target>
+      </trans-unit>
+      <trans-unit id="ZGjn2Mi" resname="tutorial.quiz.author">
+        <source>tutorial.quiz.author</source>
+        <target>Author</target>
+      </trans-unit>
+      <trans-unit id="Tf3sRn1" resname="tutorial.quiz.questions">
+        <source>tutorial.quiz.questions</source>
+        <target>Questions</target>
+      </trans-unit>
+      <trans-unit id="RQaIWQx" resname="tutorial.quiz.save">
+        <source>tutorial.quiz.save</source>
+        <target>Save my answers</target>
+      </trans-unit>
+      <trans-unit id="l8bR84Q" resname="tutorial.edit.tutorials">
+        <source>tutorial.edit.tutorials</source>
+        <target>Tutorials</target>
+      </trans-unit>
+      <trans-unit id="BcDDA_7" resname="tutorial.edit.new">
+        <source>tutorial.edit.new</source>
+        <target>New tutorial</target>
+      </trans-unit>
+      <trans-unit id="iIprfwl" resname="tutorial.edit.in_markdown">
+        <source>tutorial.edit.in_markdown</source>
+        <target>Writing in Markdown is possible in this form</target>
+      </trans-unit>
+      <trans-unit id="Sa94n_U" resname="tutorial.edit.markdown_guide">
+        <source>tutorial.edit.markdown_guide</source>
+        <target>Markdown guide</target>
+      </trans-unit>
+      <trans-unit id="9HjFELB" resname="tutorial.edit.questions">
+        <source>tutorial.edit.questions</source>
+        <target>Questions</target>
+      </trans-unit>
+      <trans-unit id="jLP4tfj" resname="tutorial.edit.add_answer">
+        <source>tutorial.edit.add_answer</source>
+        <target>Add an answer</target>
+      </trans-unit>
+      <trans-unit id="h1REsoF" resname="tutorial.edit.options">
+        <source>tutorial.edit.options</source>
+        <target>Options</target>
+      </trans-unit>
+      <trans-unit id="bHY_i53" resname="tutorial.edit.back">
+        <source>tutorial.edit.back</source>
+        <target>Back</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,112 @@
+navbar:
+  tutorials: Tutoriels
+  my_account: Mon compte
+  login: Se connecter
+  search: Rechercher
+tutorial:
+  index:
+    ten_last: Les 10 derniers tutoriels
+    looking_for_a_tutorial: Vous cherchez un tutoriel en particulier?
+    share_tutorial: Envie de partager votre savoir?
+    create: Créer un tutoriel!
+    see_more: Vous voulez voir nos autres tutoriels?
+    categories: Voir les catégories
+    search: Rechercher
+  view:
+    author: Auteur
+    created_at: Ecrit le
+    last_update: Dernière modification le
+    test_your_knowledge: Testez votre compréhension du tutoriel !
+    play_quiz: Faire le Quiz!
+    should_be_logged: Vous devez vous connecter pour répondre au quiz
+    login: Se connecter
+  quiz:
+    quiz: Quiz
+    author: Auteur
+    questions: Quiz !
+    save: Enregistrer mes réponses
+  edit:
+    tutorials: Tutoriels
+    new: Nouveau tutoriel
+    in_markdown: Vous pouvez écrire votre tutoriel en Markdown
+    markdown_guide: Guide Markdown
+    questions: Création du quiz
+    indications: Le quiz permet aux autres utilisateurs de valider les connaissances qu'ils ont appris dans votre tutoriel, il n'est pas obligatoire d'en créer un.
+    add_answer: Ajouter une réponse
+    options: Options
+    back: Retour
+login:
+  login: Se connecter
+  logged_as: Vous êtes connecté en tant que
+  logout: Se déconnecter
+  no_account: Vous n'avez pas encore de compte?
+  register: S'enregistrer
+  username: Nom de compte
+  password: Mot de passe
+register:
+  register: S'enregistrer
+homepage:
+  welcome: Bienvenue sur
+  learn_new: Apprends de nouvelles
+  skills: compétences
+  quickly: rapidement
+  from: provenant des
+  users_tutorial: tutoriels écrits par les autres utilisateurs
+  create: Créer de nouveaux tutoriels
+  for_community: pour la communauté
+  share: Partage ton
+  knowledge: savoir
+  win: Remporte
+  prices: des prix
+  upgrade: et améliore
+  your: ton
+  profile: profil
+  discover: C'est parti!
+category:
+  categories: Categories
+  tutorials: Tutoriels
+  back: Retour sur la catégorie
+  back_on_start: Retour au départ
+user:
+  index:
+    my_tutorials: Mes tutoriels
+    my_scores: Mes scores
+    wallet: Votre porte-monnaie possède
+    point: point
+    logout: Se déconnecter
+  my_scores:
+    my_scores: Mes scores
+    tutorial: Tutoriel
+    score: Score
+    date: Date
+  my_tutorials:
+    my_tutorials: Mes tutoriels
+    title: Titre
+    edit: Modifier
+form:
+  tutorial:
+    title: Titre
+    publish_now: Le publier maintenant?
+    yes: Oui
+    no: Non
+    category: Catégorie
+    register: Enregistrer
+  register:
+    username: Nom d'utilisateur
+    password: Mot de passe
+    password_not_blank: Entrer un mot de passe
+    email: Adresse mail
+    city: Ville
+    zip: Code postal
+    address: Adresse
+    birthdate: Date de naissance
+    year: Année
+    month: Mois
+    day: Jour
+    save: Enregistrer
+  question:
+    position: Position
+    question: Question
+  answer:
+    answer: Réponse
+    is_correct: Cette réponse est correcte

@@ -25,23 +25,23 @@ class TutorialType extends AbstractType
         ->add('title', TextType::class, [
             'label' => false,
             'attr' => ['class' => 'form-control',
-                        'placeholder'=> 'Title'],
+                        'placeholder'=> 'form.tutorial.title'],
         ])
         ->add('content', TextareaType::class, [
             'label' => false,
             'attr' => ['class' => 'form-control'],
         ])
         ->add('isPublished', ChoiceType::class, [
-            'label' => 'Le publier maintenant ?',
+            'label' => 'form.tutorial.publish_now',
             'choices'  => [
-                'Oui' => true,
-                'Non' => false,
+                'form.tutorial.yes' => true,
+                'form.tutorial.no' => false,
             ],
             'expanded' => true,
             'attr' => ['class' => 'form-check form-control'],
         ])
         ->add('category', EntityType::class, [
-            'label' => 'Catégorie : ',
+            'label' => 'form.tutorial.category',
             'class' => Category::class,
             'choice_label' => function (Category $category) {
                 return $category->getContent();
@@ -56,8 +56,13 @@ class TutorialType extends AbstractType
             'by_reference' => false,
         ])
         ->add('submit', SubmitType::class, [
+<<<<<<< HEAD
             'label' => 'Publier le tutoriel',
             'attr' => ['class' => 'submitFormQuestions'],
+=======
+            'label' => 'form.tutorial.register',
+            'attr' => ['class' => 'btn btn-primary'],
+>>>>>>> 5152334e574c5641f7c799e90f8e0d08856349cf
         ])
         ;
     }

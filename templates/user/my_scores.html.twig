@@ -5,22 +5,24 @@
         <div class="card card-default card-shadow">
             <div class="card-header">
                 <div class="card-title">
-                    <h2>{% trans %}user.my_tutorials.my_tutorials{% endtrans %}</h2>
+                    <h2>{% trans %}user.my_scores.my_scores{% endtrans %}</h2>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>{% trans %}user.my_tutorials.title{% endtrans %}</th>
-                            <th></th>
+                            <th>{% trans %}user.my_scores.tutorial{% endtrans %}</th>
+                            <th>{% trans %}user.my_scores.score{% endtrans %}</th>
+                            <th>{% trans %}user.my_scores.date{% endtrans %}</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for tutorial in tutorials %}
+                    {% for score in scores %}
                         <tr>
-                            <td>{{ tutorial.title|raw }}</td>
-                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">{% trans %}user.my_tutorials.edit{% endtrans %}</a></td>
+                            <td>{{ score.tutorial.title|raw }}</td>
+                            <td>{{ score.score|raw }}</td>
+                            <td>{{ score.playedAt|date("d/m/Y h:i:s") }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

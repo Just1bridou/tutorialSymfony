@@ -1,0 +1,112 @@
+navbar:
+  tutorials: Tutorials
+  my_account: My account
+  login: Login
+  search: Search
+tutorial:
+  index:
+    ten_last: The 10 last tutorials
+    looking_for_a_tutorial: Are you looking for a specific tutorial?
+    share_tutorial: Do you want to share your knowdlegde?
+    create: Create a tutorial!
+    see_more: Do you want to see our others tutorials?
+    categories: Check the categories
+    search: Search
+  view:
+    author: Author
+    created_at: Created at
+    last_update: Last update at
+    test_your_knowledge: Testez votre compréhension du tutoriel! Test your tutorial's comprehension!
+    play_quiz: Answer the quiz questions!
+    should_be_logged: You should be logged to answer the quiz question
+    login: Login
+  quiz:
+    quiz: Quiz
+    author: Author
+    questions: Questions
+    save: Save my answers
+  edit:
+    new: New tutorial
+    in_markdown: Writing in Markdown is possible in this form
+    markdown_guide: Markdown guide
+    questions: Questions
+    indications: Quizz is evaluating the user's knowledges about your tutorial. Its not obligatory.
+    add_answer: Add an answer
+    options: Options
+    back: Back
+login:
+  login: Login
+  logged_as: You are logged as
+  logout: Logout
+  no_account: You don't have an account yet?
+  register: Register
+  username: Username
+  password: Password
+register:
+  register: Register
+homepage:
+  welcome: Welcome to
+  learn_new: Learn new
+  skills: skills
+  quickly: quickly
+  from: from
+  users_tutorial: user's tutorials
+  create: Create new tutorials
+  for_community: for the community
+  share: Share your
+  knowledge: knowledge
+  win: Win
+  prices: prices
+  upgrade: and upgrade
+  your: your
+  profile: profile
+  discover: Discover!
+category:
+  categories: Categories
+  tutorials: Tutorials
+  back: Back on the category
+  back_on_start: Back on start
+user:
+  index:
+    my_tutorials: My tutorials
+    my_scores: My scores
+    wallet: Your wallet got
+    point: point
+    logout: Logout
+  my_scores:
+    my_scores: My scores
+    tutorial: Tutorial
+    score: Score
+    date: Date
+  my_tutorials:
+    my_tutorials: My tutorials
+    title: Title
+    edit: Edit
+form:
+  tutorial:
+    title: Title
+    publish_now: Publish it now?
+    yes: Yes
+    no: No
+    category: Category
+    register: Register
+  register:
+    username: Username
+    password: Password
+    password_not_blank: Enter a password
+    email: Email
+    city: City
+    zip: Zip code
+    address: Address
+    birthdate: Birthdate
+    year: Year
+    month: Month
+    day: Day
+    save: Register
+  question:
+    position: Position
+    question: Question
+  answer:
+    answer: Answer
+    is_correct: This answer is correct
+  

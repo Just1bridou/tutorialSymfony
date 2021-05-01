@@ -7,7 +7,7 @@
 
         <div class="searchBarContent m-3">
             <form class="searchBar">
-                <input onkeyup="onKeyUp(this)" name="search" class="bg-transparent border-0 w-100" placeholder="Search"/>
+                <input onkeyup="onKeyUp(this)" name="search" class="bg-transparent border-0 w-100" placeholder="{% trans %}navbar.search{% endtrans %}"/>
 
               <!--  <button class="border-0 bg-transparent seachBarButton">
                     <i class="fas fa-search"></i>
@@ -17,13 +17,18 @@
         </div>
 
         <div class="menu">
-            <a class="cat" href="{{ path("tutorial_list")}}">Tutoriels</a>
+            <a class="cat" href="{{ path("tutorial_list")}}">{% trans %}navbar.tutorials{% endtrans %}</a>
             {% if app.user %}
-                <a class="cat" href="{{ path("user_account")}}">Mon compte</a>
+                <a class="cat" href="{{ path("user_account")}}">{% trans %}navbar.my_account{% endtrans %}</a>
             {% else %}
-                <a class="cat" href="{{ path("app_login")}}">Se connecter</a>
+                <a class="cat" href="{{ path("app_login")}}">{% trans %}navbar.login{% endtrans %}</a>
             {% endif %}
             
+            {% for locale in locales %}
+                {% if locale != app.request.locale %}
+                    <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+                {% endif %}
+            {% endfor %}
         </div>
 
     </nav>

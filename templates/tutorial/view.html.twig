@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tutoriels{% endblock %}
+{% block title %}{% trans %}navbar.tutorials{% endtrans %}{% endblock %}
 
 {% block body %}
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
-    <h4 id="TutoViewAuthor" > Author : {{ tutorial.author }}</h4>
-    <p class="TutoViewdate" > Created at : {{ tutorial.createdAt|date("d/m/Y") }}</p>
+    <h4 id="TutoViewAuthor" > {% trans %}tutorial.view.author{% endtrans %}: {{ tutorial.author }}</h4>
+    <p class="TutoViewdate" > {% trans %}tutorial.view.created_at{% endtrans %}: {{ tutorial.createdAt|date("d/m/Y") }}</p>
     {% if tutorial.editedAt != null %}
-        <p class="TutoViewdate2" > Last update : {{ tutorial.editedAt|date("d/m/Y")}}</p>
+        <p class="TutoViewdate2" > {% trans %}tutorial.view.last_update{% endtrans %}: {{ tutorial.editedAt|date("d/m/Y")}}</p>
     {% endif %}
     <section class="TutoViewSection"> 
 
@@ -18,11 +18,11 @@
 
     {% if tutorial.getQuestions().count() > 0 %}
     <div class="playQuiz">
-        <h3>Testez votre compréhension du tutoriel !</h3><br>
+        <h3>{% trans %}tutorial.view.test_your_knowledge{% endtrans %}</h3><br>
         {% if app.user %}
-        <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">Faire le Quiz !</a>
+        <a href="{{ path('tutorial_play_quiz', {'id': tutorial.id}) }}">{% trans %}tutorial.view.play_quiz{% endtrans %}</a>
         {% else %}
-        <p>Vous devez vous connecter pour répondre au quiz: <a href="{{ path('app_login') }}">Se connecter</a><p>
+        <p>{% trans %}tutorial.view.should_be_logged{% endtrans %}: <a href="{{ path('app_login') }}">{% trans %}tutorial.view.login{% endtrans %}</a><p>
         {% endif %}
     </div>
     {% else %}
