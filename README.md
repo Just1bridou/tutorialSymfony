@@ -16,8 +16,8 @@ Créer un utilisateur super-admin: ```php bin/console app:create-user```
 - Des succès à atteindre (obtenir un certain nombre de 'Like', créer un certain nombre de tutoriel, obtenir un certain nombre de points...);
 
 ## Traductions
-Ajouter les variables de traductions dans *src/translations/messages.[fr/en].yaml*, exemple: ```navbar:tutorials: Tutorials```
-> Ou ajouter des variables de traduction dans le Twig, exemple ```{% trans %}tutorial.index.categories{% endtrans %}```
+- Ajouter les variables de traductions dans *src/translations/messages.[fr/en].yaml*, exemple: ```navbar:tutorials: Tutorials```
+- Puis ajouter ces variables de traduction dans le Twig, exemple ```{% trans %}navbar.tutorials{% endtrans %}```
 
 Puis lancer la génération automatique des variables dans les fichiers de traductions (*src/translations/*) avec les commandes suivantes:
 - Pour générer les variables de traduction en français: ```php bin/console translation:update --force fr```
