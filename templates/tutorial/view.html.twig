@@ -4,37 +4,33 @@
 
 {% block body %}
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
-    <div class="row">
-        <div class="column"> 
-            <h4 id="TutoViewAuthor" > {% trans %}tutorial.view.author{% endtrans %}: {{ tutorial.author }}</h4>
-            <p class="TutoViewdate" > {% trans %}tutorial.view.created_at{% endtrans %}: {{ tutorial.createdAt|date("d/m/Y") }}</p>
-
-            {% if app.user %}
-                <p class="LikeButton" > {% trans %}tutorial.view.you_like{% endtrans %}
-                    <a href="{{ path('tutorial_post_like',{'id' : tutorial.id}) }}" class="btn btn-link js-like">
-                    {% if app.user and tutorial.isLikedByUser(app.user) %}
-                        <i class="fas fa-thumbs-up"></i>
-                    {% else %}
-                        <i class="far fa-thumbs-up"></i>
-                    {% endif %}
-                        <span class="js-likes">{{ tutorial.seeLikes | length }}</span>
-                        <span class="js-label">{% trans %}tutorial.view.like{% endtrans %}</span>
-                    </a> 
-                </p>
-            {% endif %}
-
-        </div>
+    <div class="column"> 
+        <h4 id="TutoViewAuthor" > {% trans %}tutorial.view.author{% endtrans %}: {{ tutorial.author }}</h4>
+        <p class="TutoViewdate" > {% trans %}tutorial.view.created_at{% endtrans %}: {{ tutorial.createdAt|date("d/m/Y") }}</p>
     </div>
 
-         <div class="BookMarkButton" >
-            <a href="{{ path('tutorial_post_bookMark',{'id' : tutorial.id}) }}" class="btn btn-linkBM js-bookMark">
-            {% if app.user and tutorial.isBookMarkedByUser(app.user) %}
-                <i class="fas fa-bookmark"></i>
+    <div class="rowbutton">
+        <p class="LikeButton" >
+            <a href="{{ path('tutorial_post_like',{'id' : tutorial.id}) }}" class="btn btn-link js-like coeurblanc">
+            {% if app.user and tutorial.isLikedByUser(app.user) %}
+                <i class="fas fa-heart fa-2x"></i>
             {% else %}
-                <i class="far fa-bookmark"></i>
+                <i class="far fa-heart fa-2x"></i>
             {% endif %}
+                <span class="js-likes coeurblanc">{{ tutorial.seeLikes | length }}</span>
+                <span class="js-label coeurblanc">{% trans %}tutorial.view.like{% endtrans %}</span>
+            </a> 
+        </p>
+        <div class="BookMarkButton" >
+            <a href="{{ path('tutorial_post_bookMark',{'id' : tutorial.id}) }}" class="btn btn-linkBM js-bookMark coeurblanc">
+                {% if app.user and tutorial.isBookMarkedByUser(app.user) %}
+                    <i class="fas fa-bookmark fa-2x"></i>
+                {% else %}
+                    <i class="far fa-bookmark fa-2x"></i>
+                {% endif %}
             </a> 
         </div>
+    </div>
 
   
    
@@ -101,21 +97,29 @@
             //récupère le span ayant pour classe 'js-likes' se trouvant dans 'this' (notre balise <a>)
             
             const icone = this.querySelector('i');
+            const couleur = this; 
+
 
             axios.get(url).then(function(response){
                 spanCount.textContent = response.data.seeLikes
+                //console.log(couleur)
+
                 // si on console log la 'response', on peut voir le chemin:
                 // response > data > likes     
 
                 //traitement se faisant car le nom des icons changent si c'est 'far' ou 'fas'
-                if(icone.classList.contains('fas')) 
-                {
+                 if(icone.classList.contains('fas')) {
                     icone.classList.replace('fas', 'far') 
+                    couleur.classList.remove('coeurjaune') 
+                    couleur.classList.add('coeurblanc') 
                 }
-                else
-                {
-                    icone.classList.replace('far', 'fas');
-                }      
+                    
+                else {
+                    icone.classList.replace('far', 'fas'); 
+                    couleur.classList.remove('coeurblanc') 
+                    couleur.classList.add('coeurjaune') 
+                } 
+
             }).catch(function(error){
                 //S'il y a une erreur 403 (dans le cas où on n'est pas connecté)
                 if(error.response.status === 403){
@@ -144,13 +148,25 @@
         function onClickBtnLike(event){
             event.preventDefault(); //on empêche de faire une redirection (action par défaut)
             const url = this.href; 
-            const icone = this.querySelector('i');
+            const icone = this.querySelector('i');  
+            const couleur = this; 
 
             axios.get(url).then(function(response){
-                if(icone.classList.contains('fas')) 
+
+
+                if(icone.classList.contains('fas')) {
                     icone.classList.replace('fas', 'far') 
-                else
-                    icone.classList.replace('far', 'fas');
+                    couleur.classList.remove('coeurjaune') 
+                    couleur.classList.add('coeurblanc') 
+                }
+                    
+                else {
+                    icone.classList.replace('far', 'fas'); 
+                    couleur.classList.remove('coeurblanc') 
+                    couleur.classList.add('coeurjaune') 
+                }
+                    
+
             }).catch(function(error){
                 if(error.response.status === 403){
                     window.alert("Vous ne pouvez pas mettre en favoris un tuto si vous n'êtes pas connecté!")

@@ -903,3 +903,36 @@ footer div {
 .displayNone {
     display: none;
 }
+
+
+/*TutoView Like + Bookmark*/
+.rowbutton{
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.LikeButton>a{
+    text-decoration:none; 
+    border:none;
+    margin:none;
+}
+
+.BookMarkButton{
+    margin-left: 1vw;
+    text-decoration:none; 
+}
+.BookMarkButton>a{
+    border:none;
+    margin: none;
+}
+
+.coeurblanc{
+    color:white;
+}
+.coeurjaune{
+    color:gold;
+}
+
+
+
