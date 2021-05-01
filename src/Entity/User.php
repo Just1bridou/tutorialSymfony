@@ -108,6 +108,11 @@ class User implements UserInterface
      */
     private $seeLikes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=UserAchievement::class, mappedBy="user")
+     */
+    private $userAchievements;
+
     public function __construct()
     {
         $this->tutorials = new ArrayCollection();
@@ -116,6 +121,7 @@ class User implements UserInterface
         $this->bookmarks = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->seeLikes = new ArrayCollection();
+        $this->userAchievements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -437,6 +443,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($seeLike->getUser() === $this) {
                 $seeLike->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|UserAchievement[]
+     */
+    public function getUserAchievements(): Collection
+    {
+        return $this->userAchievements;
+    }
+
+    public function addUserAchievement(UserAchievement $userAchievement): self
+    {
+        if (!$this->userAchievements->contains($userAchievement)) {
+            $this->userAchievements[] = $userAchievement;
+            $userAchievement->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserAchievement(UserAchievement $userAchievement): self
+    {
+        if ($this->userAchievements->removeElement($userAchievement)) {
+            // set the owning side to null (unless already changed)
+            if ($userAchievement->getUser() === $this) {
+                $userAchievement->setUser(null);
             }
         }
 
