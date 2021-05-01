@@ -46,7 +46,7 @@ class TutorialController extends AbstractController
      */
     public function create(Request $request, Security $security): Response
     {
-        //$this->denyAccessUnlessGranted('tuto_create', $security->getUser());
+        $this->denyAccessUnlessGranted('tuto_create', $security->getUser());
 
         $tutorial = new Tutorial();
         $tutorialForm = $this->createForm(TutorialType::class, $tutorial);
@@ -141,7 +141,7 @@ class TutorialController extends AbstractController
      */
     public function quiz(Tutorial $tutorial, Request $request): Response
     {
-        $this->denyAccessUnlessGranted('tuto_create', $tutorial->getAuthor());
+        $this->denyAccessUnlessGranted('tuto_play', $tutorial->getAuthor());
 
         return $this->render('tutorial/quiz.html.twig', [
             'tutorial' => $tutorial,
