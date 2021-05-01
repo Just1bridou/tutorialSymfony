@@ -114,4 +114,14 @@ class Achievement
 
         return $this;
     }
+    
+    /**
+     * toString function
+     * 
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getTargetField() . "  " . $this->getMathematicalOperator() . " " . $this->getGoal();
+    }
 }

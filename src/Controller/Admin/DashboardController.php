@@ -7,6 +7,7 @@ use App\Entity\Comment;
 use App\Entity\Score;
 use App\Entity\Tutorial;
 use App\Entity\User;
+use App\Entity\UserAchievement;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -39,5 +40,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Scores', 'fas fa-list', Score::class);
         yield MenuItem::linkToCrud('Comments', 'fas fa-list', Comment::class);
+        yield MenuItem::linkToCrud('Users Achievements', 'fas fa-list', UserAchievement::class);
     }
 }
