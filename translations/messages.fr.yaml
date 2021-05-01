@@ -10,3 +10,11 @@ tutorial:
     create: Créer un tutoriel!
     see_more: Vous voulez voir nos autres tutoriels?
     categories: Voir les catégories
+  view:
+    author: Auteur
+    created_at: Ecrit le
+    last_update: Dernière modification le
+    test_your_knowledge: Testez votre compréhension du tutoriel!
+    play_quiz: Répondre aux questions du Quiz!
+    should_be_logged: Vous devez vous connecter pour répondre au quiz
+    login: Se connecter

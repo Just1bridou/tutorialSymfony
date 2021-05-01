@@ -41,6 +41,34 @@
         <source>tutorial.index.categories</source>
         <target>Check the categories</target>
       </trans-unit>
+      <trans-unit id="bN9UOUJ" resname="tutorial.view.author">
+        <source>tutorial.view.author</source>
+        <target>Author</target>
+      </trans-unit>
+      <trans-unit id="EXpd8gJ" resname="tutorial.view.created_at">
+        <source>tutorial.view.created_at</source>
+        <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="yHm06lP" resname="tutorial.view.last_update">
+        <source>tutorial.view.last_update</source>
+        <target>Last update at</target>
+      </trans-unit>
+      <trans-unit id="fu1DFW2" resname="tutorial.view.test_your_knowledge">
+        <source>tutorial.view.test_your_knowledge</source>
+        <target>Testez votre compréhension du tutoriel! Test your tutorial's comprehension!</target>
+      </trans-unit>
+      <trans-unit id="SZMUYPV" resname="tutorial.view.play_quiz">
+        <source>tutorial.view.play_quiz</source>
+        <target>Answer the quiz questions!</target>
+      </trans-unit>
+      <trans-unit id="IwNgkFO" resname="tutorial.view.should_be_logged">
+        <source>tutorial.view.should_be_logged</source>
+        <target>You should be logged to answer the quiz question</target>
+      </trans-unit>
+      <trans-unit id="C2vOBsN" resname="tutorial.view.login">
+        <source>tutorial.view.login</source>
+        <target>Login</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

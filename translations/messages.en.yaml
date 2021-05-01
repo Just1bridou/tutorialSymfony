@@ -10,3 +10,12 @@ tutorial:
     create: Create a tutorial!
     see_more: Do you want to see our others tutorials?
     categories: Check the categories
+  view:
+    author: Author
+    created_at: Created at
+    last_update: Last update at
+    test_your_knowledge: Testez votre compréhension du tutoriel! Test your tutorial's comprehension!
+    play_quiz: Answer the quiz questions!
+    should_be_logged: You should be logged to answer the quiz question
+    login: Login
+    
