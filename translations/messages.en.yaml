@@ -69,5 +69,18 @@ form:
     no: No
     category: Category
     register: Register
+  register:
+    username: Username
+    password: Password
+    password_not_blank: Enter a password
+    email: Email
+    city: City
+    zip: Zip code
+    address: Address
+    birthdate: Birthdate
+    year: Year
+    month: Month
+    day: Day
+    save: Register
 
   

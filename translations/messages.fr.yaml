@@ -70,3 +70,16 @@ form:
     no: Non
     category: Catégorie
     register: Enregistrer
+  register:
+    username: Nom d'utilisateur
+    password: Mot de passe
+    password_not_blank: Entrer un mot de passe
+    email: Adresse mail
+    city: Ville
+    zip: Code postal
+    address: Adresse
+    birthdate: Date de naissance
+    year: Année
+    month: Mois
+    day: Jour
+    save: Enregistrer
