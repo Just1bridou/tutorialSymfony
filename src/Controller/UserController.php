@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Repository\ScoreRepository;
 use App\Repository\TutorialRepository;
+use App\Repository\PostBookMarkRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,11 +21,12 @@ class UserController extends AbstractController
     /**
      * Affiche la page de l'utilisateur connecté
      * 
-     * @param Security $security
+     * @param Security           $security
+     * @param PostBookMarkRepository $bookmarkRepo
      * 
      * @return Response
      */
-    public function index(Security $security): Response
+    public function index(Security $security, PostBookMarkRepository $bookmarkRepo): Response
     {
         if (!$security->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return $this->redirectToRoute('app_login');
@@ -32,6 +34,7 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig', [
             'user' => $security->getUser(),
+            'bookmarks' => $bookmarkRepo->findBy(['user' => $security->getUser()])
         ]);
     }
 

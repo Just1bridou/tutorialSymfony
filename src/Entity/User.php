@@ -108,6 +108,11 @@ class User implements UserInterface
      */
     private $seeLikes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PostBookMark::class, mappedBy="user")
+     */
+    private $seeBookMarks;
+
     public function __construct()
     {
         $this->tutorials = new ArrayCollection();
@@ -116,6 +121,7 @@ class User implements UserInterface
         $this->bookmarks = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->seeLikes = new ArrayCollection();
+        $this->seeBookMarks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -441,6 +447,50 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|PostBookMark[]
+     */
+    public function getSeeBookMarks(): Collection
+    {
+        return $this->seeBookMarks;
+    }
+
+    public function addSeeBookMark(PostBookMark $seeBookMark): self
+    {
+        if (!$this->seeBookMarks->contains($seeBookMark)) {
+            $this->seeBookMarks[] = $seeBookMark;
+            $seeBookMark->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeeBookMark(PostBookMark $seeBookMark): self
+    {
+        if ($this->seeBookMarks->removeElement($seeBookMark)) {
+            // set the owning side to null (unless already changed)
+            if ($seeBookMark->getUser() === $this) {
+                $seeBookMark->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Permet de savoir si un user a "bokkmarké" un tuto
+     * 
+     * @param BookMark $bookmark
+     * @return boolean
+     */
+    public function getBookMarkUser(BookMark $bookmark) : bool
+    {
+        foreach ($this->isBookmarked as $bookmark){
+            if ($bookmark->getIsBookmarked() === $bookmark) return true;
+        }
+        return false;
     }
 
 }
