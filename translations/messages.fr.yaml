@@ -2,6 +2,7 @@ navbar:
   tutorials: Tutoriels
   my_account: Mon compte
   login: Se connecter
+  search: Rechercher
 tutorial:
   index:
     ten_last: Les 10 derniers tutoriels
@@ -10,6 +11,7 @@ tutorial:
     create: Créer un tutoriel!
     see_more: Vous voulez voir nos autres tutoriels?
     categories: Voir les catégories
+    search: Rechercher
   view:
     author: Auteur
     created_at: Ecrit le
@@ -64,6 +66,22 @@ category:
   tutorials: Tutoriels
   back: Retour sur la catégorie
   back_on_start: Retour au départ
+user:
+  index:
+    my_tutorials: Mes tutoriels
+    my_scores: Mes scores
+    wallet: Votre porte-monnaie possède
+    point: point
+    logout: Se déconnecter
+  my_scores:
+    my_scores: Mes scores
+    tutorial: Tutoriel
+    score: Score
+    date: Date
+  my_tutorials:
+    my_tutorials: Mes tutoriels
+    title: Titre
+    edit: Modifier
 form:
   tutorial:
     title: Titre

@@ -2,6 +2,7 @@ navbar:
   tutorials: Tutorials
   my_account: My account
   login: Login
+  search: Search
 tutorial:
   index:
     ten_last: The 10 last tutorials
@@ -10,6 +11,7 @@ tutorial:
     create: Create a tutorial!
     see_more: Do you want to see our others tutorials?
     categories: Check the categories
+    search: Search
   view:
     author: Author
     created_at: Created at
@@ -63,6 +65,22 @@ category:
   tutorials: Tutorials
   back: Back on the category
   back_on_start: Back on start
+user:
+  index:
+    my_tutorials: My tutorials
+    my_scores: My scores
+    wallet: Your wallet got
+    point: point
+    logout: Logout
+  my_scores:
+    my_scores: My scores
+    tutorial: Tutorial
+    score: Score
+    date: Date
+  my_tutorials:
+    my_tutorials: My tutorials
+    title: Title
+    edit: Edit
 form:
   tutorial:
     title: Title

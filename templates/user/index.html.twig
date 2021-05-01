@@ -10,10 +10,10 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4"><a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">My tutorials</a></div>
-                    <div class="col-md-4"><a href="{{ path('user_scores', {'id': user.id}) }}" class="link-create">My scores</a></div>
-                    <div class="col-md-4"><a href="{{ path('app_logout') }}">Logout</a></div>
-                    <div class="col-md-4">Your wallet got {{ user.wallet }} point{% if user.wallet > 1 %}s{% endif %}!</div>
+                    <div class="col-md-4"><a href="{{ path('user_tutorials', {'id': user.id}) }}" class="link-create">{% trans %}user.index.my_tutorials{% endtrans %}</a></div>
+                    <div class="col-md-4"><a href="{{ path('user_scores', {'id': user.id}) }}" class="link-create">{% trans %}user.index.my_scores{% endtrans %}</a></div>
+                    <div class="col-md-4"><a href="{{ path('app_logout') }}">{% trans %}user.index.logout{% endtrans %}</a></div>
+                    <div class="col-md-4">{% trans %}user.index.wallet{% endtrans %} {{ user.wallet }} {% trans %}user.index.point{% endtrans %}{% if user.wallet > 1 %}s{% endif %}!</div>
                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <div class="row">
                             <div class="col-md-4"><a href="{{ path('admin') }}">EasyAdmin</a></div>
