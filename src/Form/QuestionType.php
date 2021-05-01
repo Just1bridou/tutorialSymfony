@@ -17,11 +17,11 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('position', NumberType::class, [
-                'label' => 'Position',
+                'label' => 'form.question.position',
                 'attr' => ['class' => 'form-control'],
             ])
             ->add('content', TextType::class, [
-                'label' => 'Question',
+                'label' => 'form.question.question',
                 'attr' => ['class' => 'form-control'],
             ])
             ->add('answers', CollectionType::class, [

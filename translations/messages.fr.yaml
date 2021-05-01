@@ -83,3 +83,6 @@ form:
     month: Mois
     day: Jour
     save: Enregistrer
+  question:
+    position: Position
+    question: Question
