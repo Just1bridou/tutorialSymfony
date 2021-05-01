@@ -705,6 +705,7 @@ footer div {
     font-size: 25px;
     border-top: 10px solid gold;
     text-transform: capitalize;
+    margin-top: 50px;
 }
 
 .answerBloc {
