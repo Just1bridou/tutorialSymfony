@@ -115,3 +115,12 @@ form:
   comment:
     content: Commentaire
     save: Enregistrer
+  js_answer:
+    answer: Réponse
+    correct_answer: Réponse correcte ?
+    yes: Oui
+    no: Non
+    add_question: Ajouter une question
+    remove_question: Supprimer cette question
+    remove_answer: Supprimer cette réponse
+    add_answer: Ajouter une réponse

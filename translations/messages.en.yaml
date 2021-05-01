@@ -114,4 +114,13 @@ form:
   comment:
     content: Comment
     save: Save
+  js_answer:
+    answer: Answer
+    correct_answer: Correct answer ?
+    yes: Yes
+    no: No
+    add_question: Add a question
+    remove_question: Delete this question
+    remove_answer: Delete this answer
+    add_answer: Add an answer
   
