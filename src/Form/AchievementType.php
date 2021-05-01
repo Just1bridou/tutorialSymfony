@@ -21,7 +21,11 @@ class AchievementType extends AbstractType
                 'attr' => ['class' => 'form-control',
                             'placeholder'=> 'form.achievement.target_field'],
             ])
-            ->add('mathematicalOperator')
+            ->add('mathematicalOperator', null, [
+                'label' => 'form.achievement.mathematical_operator',
+                'required' => true,
+                'attr' => ['class' => 'form-control'],
+            ])
             ->add('goal', NumberType::class, [
                 'label' => false,
                 'attr' => ['class' => 'form-control',
