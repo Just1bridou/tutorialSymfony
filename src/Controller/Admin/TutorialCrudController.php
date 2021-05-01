@@ -6,6 +6,7 @@ use App\Entity\Tutorial;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -25,8 +26,8 @@ class TutorialCrudController extends AbstractCrudController
             BooleanField::new('isPublished'),
             BooleanField::new('isDeleted'),
             AssociationField::new('author'),
-            AssociationField::new('category')
+            AssociationField::new('category'),
+            DateTimeField::new('createdAt')
         ];
     }
-
 }
