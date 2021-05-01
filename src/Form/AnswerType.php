@@ -20,10 +20,10 @@ class AnswerType extends AbstractType
                     'placeholder' => 'form.answer.answer'],
             ])
             ->add('isCorrect', ChoiceType::class, [
-                'label' => 'form.answer.is_correct',
+                'label' => 'form.js_answer.correct_answer',
                 'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
+                    'form.js_answer.yes' => true,
+                    'form.js_answer.no' => false,
                 ],
                 'expanded' => true,
                 'attr' => ['class' => 'form-check form-control'],

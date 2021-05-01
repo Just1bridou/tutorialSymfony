@@ -28,16 +28,17 @@
         <section>
             <div class="questionsHolder" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
                 {% for question in tutorialForm.questions %}
+                    <hr/>
                     <div class="question-type">
                         <div>{{ form_row(question.content) }}</div>
                         <div>{{ form_row(question.position) }}</div>
 
                         <div class="answers" data-prototype="{{ form_widget(question.answers.vars.prototype)|e('html_attr') }}">
                         {% for answer in question.answers %}
-                            <div class="row answer-type">
-                                <div class="col-md-10">{{ form_row(answer.content) }}</div>
-                                <div class="col-md-2">{{ form_row(answer.isCorrect) }}</div>
-                            </div>
+                        <div class="answerBlocQuestionForm">
+                            {{ form_row(answer.content) }}
+                            {{ form_row(answer.isCorrect) }}
+                        </div>
                         {% endfor %}
                         </div>
                         <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">{% trans %}tutorial.edit.add_answer{% endtrans %}</button>
