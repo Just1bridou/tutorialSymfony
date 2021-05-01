@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\PostBookMark;
 use App\Entity\Tutorial;
 use App\Entity\PostLike;
 use App\Form\CommentType;
 use App\Form\TutorialType;
 use App\Manager\ScoreManager;
+use App\Repository\PostBookMarkRepository;
 use App\Repository\PostLikeRepository;
 use App\Repository\TutorialRepository;
 use App\Repository\ScoreRepository;
@@ -235,6 +237,51 @@ class TutorialController extends AbstractController
             'code' => 200,
             'message' => "Like bien ajouté",
             'seeLikes' => $likeRepo->count(['post'=>$tutorial])
+        ],200);
+    }
+
+    #[Route('/post/{id}/bookmark', name: 'post_bookMark')]
+    /**
+     * Permet de bookmarké ou unbookmarké un article
+     * 
+     */
+    public function bookMark(Tutorial $tutorial, EntityManagerInterface $manager, PostBookMarkRepository $bookmarkRepo) : Response {
+
+        $user = $this->getUser();
+
+        if(!$user) return $this->json([
+            'code' => 403,
+            'message' => "Il faut que vous soyez connecté"
+        ],403);
+
+        if($tutorial->isBookMarkedByUser($user)){
+            $bookMark = $bookmarkRepo->findOneBy([
+                'post' => $tutorial,
+                'user' => $user
+            ]);
+
+            $manager->remove($bookMark);
+            $manager->flush();
+
+            return $this->json([
+                'code' => 200,
+                'message' => "bookmark bien supprimé",
+                'seeBookMarks' => $bookmarkRepo->count(['post'=>$tutorial])
+            ],200);
+        }
+
+
+        $bookMark = new PostBookMark();
+        $bookMark->setPost($tutorial)
+             ->setUser($user);
+        
+        $manager->persist($bookMark);
+        $manager->flush();
+
+        return $this->json([
+            'code' => 200,
+            'message' => "bookmark bien ajouté",
+            'seeBookMarks' => $bookmarkRepo->count(['post'=>$tutorial])
         ],200);
     }
 

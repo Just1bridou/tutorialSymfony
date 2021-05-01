@@ -15,9 +15,17 @@
                     <div class="col-md-4"><a href="{{ path('app_logout') }}">{% trans %}user.index.logout{% endtrans %}</a></div>
                     <div class="col-md-4">{% trans %}user.index.wallet{% endtrans %} {{ user.wallet }} {% trans %}user.index.point{% endtrans %}{% if user.wallet > 1 %}s{% endif %}!</div>
                     {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+                    <div class="BookMarkList" >
+                    {% for bookmark in bookmarks %}
+                            <a href="{{ path('tutorial_view', {'id': bookmark.post.id}) }}">{{ bookmark.post.title }}</a>
+                    {% endfor %}
+                       
+                    </div>
+
                         <div class="row">
                             <div class="col-md-6"><a href="{{ path('admin') }}">EasyAdmin</a></div>
-                            <div class="col-md-6"><a href="{{ path('achievement_list') }}">ACHIEVEMENT</a></div>
+                            <div class="col-md-6"><a href="{{ path('achievement_list') }}">{% trans %}user.index.achievements{% endtrans %}</a></div>
                         </div>
                     {% endif %}
                 </div>

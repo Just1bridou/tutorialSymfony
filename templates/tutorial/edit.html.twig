@@ -28,20 +28,23 @@
         <section>
             <div class="questionsHolder" data-prototype="{{ form_widget(tutorialForm.questions.vars.prototype)|e('html_attr') }}">
                 {% for question in tutorialForm.questions %}
-                    <hr/>
                     <div class="question-type">
+                        <hr/>
                         <div>{{ form_row(question.content) }}</div>
                         <div>{{ form_row(question.position) }}</div>
 
                         <div class="answers" data-prototype="{{ form_widget(question.answers.vars.prototype)|e('html_attr') }}">
                         {% for answer in question.answers %}
-                        <div class="answerBlocQuestionForm">
-                            {{ form_row(answer.content) }}
-                            {{ form_row(answer.isCorrect) }}
-                        </div>
+                            <div class="answerBlocQuestionForm">
+                                {{ form_row(answer.content) }}
+                                {{ form_row(answer.isCorrect) }}
+                                <button onclick="editRemoveAnswer(this)" type="button" class="removeAnswerButton">{% trans %}form.js_answer.remove_answer{% endtrans %}</button>
+                            </div>
                         {% endfor %}
+                            <div class="newDivs"></div>
+                            <button onclick="editNewAnswer(this)" type="button" class="addAnswerButton">{% trans %}tutorial.edit.add_answer{% endtrans %}</button>
+                            <button onclick="editRemoveQuestion(this)" type="button" class="removeAnswerButton">{% trans %}form.js_answer.remove_question{% endtrans %}</button>
                         </div>
-                        <button type="button" class="add_answer_link btn btn-primary" data-collection-holder-class="answers">{% trans %}tutorial.edit.add_answer{% endtrans %}</button>
                     </div>
                 {% endfor %}
             </div>

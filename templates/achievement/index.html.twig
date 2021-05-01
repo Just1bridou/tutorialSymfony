@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AchievementController!{% endblock %}
+{% block title %}{% trans %}user.achievement.achievements{% endtrans %}{% endblock %}
 
 {% block body %}
     <div class="col-xl-12 col-md-8">
         <div class="card card-default card-shadow">
             <div class="card-header">
                 <div class="card-title">
-                    <h2>ACHIEVEMENTS</h2>
+                    <h2>{% trans %}user.achievement.achievements{% endtrans %}</h2>
                 </div>
             </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>targetField</th>
-                            <th>mathematicalOperator</th>
-                            <th>goal</th>
+                            <th>{% trans %}user.achievement.target_field{% endtrans %}</th>
+                            <th>{% trans %}user.achievement.mathematical_operator{% endtrans %}</th>
+                            <th>{% trans %}user.achievement.goal{% endtrans %}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -26,11 +26,12 @@
                             <td>{{ achievement.targetField|raw }}</td>
                             <td>{{ achievement.mathematicalOperator|raw }}</td>
                             <td>{{ achievement.goal|raw }}</td>
-                            <td><a href="#">EDIT</a></td>
+                            <td><a href="{{ path('achievement_edit', {'id': achievement.id}) }}">{% trans %}user.achievement.edit{% endtrans %}</a></td>
+                            
                         </tr>
                     {% endfor %}
 
-                    <a href="{{ path('achievement_create') }}">CREATE</a>
+                    <a href="{{ path('achievement_create') }}">{% trans %}user.achievement.create{% endtrans %}</a>
 
                     </tbody>
                 </table>

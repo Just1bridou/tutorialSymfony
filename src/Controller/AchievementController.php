@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Achievement;
 use App\Form\AchievementType;
 use App\Repository\AchievementRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AchievementController
  * @Route("/achievement", name="achievement_")
+ * @Security("is_granted('ROLE_SUPER_ADMIN')")
  */
 class AchievementController extends AbstractController
 {
@@ -33,12 +35,10 @@ class AchievementController extends AbstractController
     /**
      * Create an achievement
      * 
-     * @param AchievementRepository $achievementRepository
+     * @param Request $request
      */
-    public function create(Request $request, ): Response
+    public function create(Request $request): Response
     {
-        //$this->denyAccessUnlessGranted('tuto_create', $security->getUser());
-
         $achievement = new Achievement();
         $achievementForm = $this->createForm(AchievementType::class, $achievement);
 
@@ -51,6 +51,32 @@ class AchievementController extends AbstractController
             return $this->redirectToRoute('achievement_list');
         }
 
+        return $this->render('achievement/edit.html.twig', [
+            'achievementForm' => $achievementForm->createView(),
+        ]);
+    }
+
+    #[Route('/edit/{id}', name: 'edit')]
+    /**
+     * Edit an achievement
+     * 
+     * @param Achievement   $achievement
+     * @param Request       $request
+     * 
+     * @return Response
+     */
+    public function edit(Achievement $achievement, Request $request): Response
+    {
+        $achievementForm = $this->createForm(AchievementType::class, $achievement);
+
+        $achievementForm->handleRequest($request);
+        if ($achievementForm->isSubmitted() && $achievementForm->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->flush();
+
+            return $this->redirectToRoute('achievement_list');
+        }
+    
         return $this->render('achievement/edit.html.twig', [
             'achievementForm' => $achievementForm->createView(),
         ]);
