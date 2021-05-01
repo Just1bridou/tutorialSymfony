@@ -55,7 +55,7 @@
         <hr/>
 
         <div class="registerFormQuestion">
-            <a href="{{ path('tutorial_list') }}">{% trans %}tutorial.edit.back{% endtrans %}</a>
+            <a href="{{ app.request.headers.get('referer') }}">{% trans %}tutorial.edit.back{% endtrans %}</a>
             {{ form_row(tutorialForm.submit) }}
         </div>
 

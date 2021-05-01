@@ -9,22 +9,26 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>{% trans %}user.my_tutorials.title{% endtrans %}</th>
-                            <th></th>
+                <table class="tableUser">
+                    <thead class="theaduser">
+                        <tr class="truser">
+                            <th class="thuser">{% trans %}user.my_tutorials.title{% endtrans %}</th>
+                            <th class="thuser"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="tbodyuser">
                     {% for tutorial in tutorials %}
-                        <tr>
-                            <td>{{ tutorial.title|raw }}</td>
-                            <td><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">{% trans %}user.my_tutorials.edit{% endtrans %}</a></td>
+                        <tr class="truser">
+                            <td class="thuser">{{ tutorial.title|raw }}</td>
+                            <td class="thuser"><a href="{{ path('tutorial_edit', {'id': tutorial.id}) }}" class="link-create">{% trans %}user.my_tutorials.edit{% endtrans %}</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+
+                <a class="boutoncreate" href="{{ path('tutorial_create') }}">{% trans %}user.my_tutorials.create{% endtrans %}</a>
+                <a class="boutonback" href="{{ path('user_account') }}">{% trans %}user.my_tutorials.back{% endtrans %}</a>
+
             </div>
         </div>
     </div>

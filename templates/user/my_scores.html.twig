@@ -9,24 +9,27 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>{% trans %}user.my_scores.tutorial{% endtrans %}</th>
-                            <th>{% trans %}user.my_scores.score{% endtrans %}</th>
-                            <th>{% trans %}user.my_scores.date{% endtrans %}</th>
+                <table class="tableUser">
+                    <thead class="theaduser">
+                        <tr class="truser">
+                            <th class="thuser">{% trans %}user.my_scores.tutorial{% endtrans %}</th>
+                            <th class="thuser">{% trans %}user.my_scores.score{% endtrans %}</th>
+                            <th class="thuser">{% trans %}user.my_scores.date{% endtrans %}</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="tbodyuser">
                     {% for score in scores %}
-                        <tr>
-                            <td>{{ score.tutorial.title|raw }}</td>
-                            <td>{{ score.score|raw }}</td>
-                            <td>{{ score.playedAt|date("d/m/Y h:i:s") }}</td>
+                        <tr class="truser">
+                            <td class="thuser">{{ score.tutorial.title|raw }}</td>
+                            <td class="thuser">{{ score.score|raw }}</td>
+                            <td class="thuser">{{ score.playedAt|date("d/m/Y h:i:s") }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
+
+                <a class="boutonback" href="{{ path('user_account') }}">{% trans %}user.my_scores.back{% endtrans %}</a>
+
             </div>
         </div>
     </div>

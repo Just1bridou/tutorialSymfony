@@ -13,7 +13,7 @@
 
                 {% for category in categories %}
 
-                    <a href="{{ path('category_show', {'id': category.id}) }}">{{ category.content }}s</a>
+                    <a class="categorieList" href="{{ path('category_show', {'id': category.id}) }}">{{ category.content }}s</a>
 
                 {% endfor %}
 
