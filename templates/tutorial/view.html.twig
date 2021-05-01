@@ -25,4 +25,25 @@
         {% endif %}
     </div>
 
+    <div class="elementCase comments">
+        {% if app.user %}
+            {{ form_start(commentForm) }}
+            {{ form_end(commentForm) }}
+        {% endif %}
+
+        {% for comment in tutorial.comments %}
+            <div class="comment">
+                <div class="row">
+                    <div class="col-3">
+                        {{ comment.author }} (<small>{{ comment.createdAt | date('d/m/Y H:i') }}</small>)
+                    </div>
+                    <div class="col">
+                        {{ comment.content | raw }}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
 {% endblock %}

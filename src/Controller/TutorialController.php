@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Tutorial;
+use App\Form\CommentType;
 use App\Form\TutorialType;
 use App\Manager\ScoreManager;
 use App\Repository\TutorialRepository;
@@ -118,13 +120,32 @@ class TutorialController extends AbstractController
      * Voir un tutoriel
      *
      * @param Tutorial      $tutorial
+     * @param Request       $request
+     * @param Security      $security
      *
      * @return Response
      */
-    public function view(Tutorial $tutorial): Response
+    public function view(Tutorial $tutorial, Request $request, Security $security): Response
     {
+        $comment = new Comment();
+        $commentForm = $this->createForm(CommentType::class, $comment);
+
+        $commentForm->handleRequest($request);
+        if ($commentForm->isSubmitted() && $commentForm->isValid()){
+            $comment->setCreatedAt(new \DateTime())
+                    ->setTutorial($tutorial)
+                    ->setAuthor($security->getUser());
+
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($comment);
+            $manager->flush();
+    
+            return $this->redirectToRoute('tutorial_view', ['id' => $tutorial->getId()]);
+        }
+
         return $this->render('tutorial/view.html.twig', [
             'tutorial' => $tutorial,
+            'commentForm' => $commentForm->createView(),
         ]);
     }
 

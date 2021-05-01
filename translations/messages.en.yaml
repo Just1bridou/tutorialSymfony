@@ -108,4 +108,7 @@ form:
   answer:
     answer: Answer
     is_correct: This answer is correct
+  comment:
+    content: Comment
+    save: Save
   
