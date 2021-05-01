@@ -69,6 +69,22 @@
         <source>tutorial.view.login</source>
         <target>Se connecter</target>
       </trans-unit>
+      <trans-unit id="cX5TI1v" resname="tutorial.quiz.quiz">
+        <source>tutorial.quiz.quiz</source>
+        <target>Quiz</target>
+      </trans-unit>
+      <trans-unit id="ZGjn2Mi" resname="tutorial.quiz.author">
+        <source>tutorial.quiz.author</source>
+        <target>Auteur</target>
+      </trans-unit>
+      <trans-unit id="Tf3sRn1" resname="tutorial.quiz.questions">
+        <source>tutorial.quiz.questions</source>
+        <target>Les questions</target>
+      </trans-unit>
+      <trans-unit id="RQaIWQx" resname="tutorial.quiz.save">
+        <source>tutorial.quiz.save</source>
+        <target>Enregistrer mes réponses</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

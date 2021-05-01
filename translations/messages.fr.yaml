@@ -18,3 +18,8 @@ tutorial:
     play_quiz: Répondre aux questions du Quiz!
     should_be_logged: Vous devez vous connecter pour répondre au quiz
     login: Se connecter
+  quiz:
+    quiz: Quiz
+    author: Auteur
+    questions: Les questions
+    save: Enregistrer mes réponses

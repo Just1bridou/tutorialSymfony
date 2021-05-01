@@ -18,4 +18,9 @@ tutorial:
     play_quiz: Answer the quiz questions!
     should_be_logged: You should be logged to answer the quiz question
     login: Login
+  quiz:
+    quiz: Quiz
+    author: Author
+    questions: Questions
+    save: Save my answers
     

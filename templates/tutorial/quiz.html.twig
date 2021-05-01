@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Quiz{% endblock %}
+{% block title %}{% trans %}tutorial.quiz.quiz{% endtrans %}{% endblock %}
 
 {% block body %}
     <h1 id="TutoViewTitre">{{ tutorial.title }}</h1>
-    <h4 id="TutoViewAuthor" > Author : {{ tutorial.author.username }}</h4>
+    <h4 id="TutoViewAuthor" > {% trans %}tutorial.quiz.author{% endtrans %}: {{ tutorial.author.username }}</h4>
 
     <div class="col-xl-12 col-md-8">
         <div class="card card-default card-shadow">
             <div class="card-header">
                 <div class="card-title">
-                    <h2>Les questions</h2>
+                    <h2>{% trans %}tutorial.quiz.questions{% endtrans %}</h2>
                 </div>
             </div>
             <form class="card-body quizForm" tuto-id={{ tutorial.id }}>
@@ -28,7 +28,7 @@
                     </div>
                 {% endfor %}
             </form>
-                <input class="submitQuiz" type="submit" value="Enregistrer mes réponses">
+                <input class="submitQuiz" type="submit" value="{% trans %}tutorial.quiz.save{% endtrans %}">
             </div>
         </div>
     </div>
