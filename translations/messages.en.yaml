@@ -31,3 +31,9 @@ tutorial:
     add_answer: Add an answer
     options: Options
     back: Back
+login:
+  login: Login
+  logged_as: You are logged as
+  logout: Logout
+  no_account: You don't have an account yet?
+  register: Register

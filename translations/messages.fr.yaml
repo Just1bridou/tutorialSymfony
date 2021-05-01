@@ -32,3 +32,9 @@ tutorial:
     add_answer: Ajouter une réponse
     options: Options
     back: Retour
+login:
+  login: Se connecter
+  logged_as: Vous êtes connecté en tant que
+  logout: Se déconnecter
+  no_account: Vous n'avez pas encore de compte?
+  register: S'enregistrer
