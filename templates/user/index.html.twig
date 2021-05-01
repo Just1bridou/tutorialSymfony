@@ -16,7 +16,8 @@
                     <div class="col-md-4">{% trans %}user.index.wallet{% endtrans %} {{ user.wallet }} {% trans %}user.index.point{% endtrans %}{% if user.wallet > 1 %}s{% endif %}!</div>
                     {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <div class="row">
-                            <div class="col-md-4"><a href="{{ path('admin') }}">EasyAdmin</a></div>
+                            <div class="col-md-6"><a href="{{ path('admin') }}">EasyAdmin</a></div>
+                            <div class="col-md-6"><a href="{{ path('achievement_list') }}">ACHIEVEMENT</a></div>
                         </div>
                     {% endif %}
                 </div>

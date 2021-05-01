@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AchievementController!{% endblock %}
+
+{% block body %}
+    <div class="col-xl-12 col-md-8">
+        <div class="card card-default card-shadow">
+            <div class="card-header">
+                <div class="card-title">
+                    <h2>ACHIEVEMENTS</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>targetField</th>
+                            <th>mathematicalOperator</th>
+                            <th>goal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for achievement in achievements %}
+                        <tr>
+                            <td>{{ achievement.targetField|raw }}</td>
+                            <td>{{ achievement.mathematicalOperator|raw }}</td>
+                            <td>{{ achievement.goal|raw }}</td>
+                            <td><a href="#">EDIT</a></td>
+                        </tr>
+                    {% endfor %}
+
+                    <a href="{{ path('achievement_create') }}">CREATE</a>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
