@@ -28,6 +28,7 @@ tutorial:
     questions: Questions
     save: Save my answers
   edit:
+    tutorials: Tutorials
     new: New tutorial
     in_markdown: Writing in Markdown is possible in this form
     markdown_guide: Markdown guide
@@ -119,6 +120,8 @@ form:
   answer:
     answer: Answer
     is_correct: This answer is correct
+    yes: Yes
+    no: No
   comment:
     content: Comment
     save: Save

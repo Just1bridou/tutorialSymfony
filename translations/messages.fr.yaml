@@ -120,6 +120,8 @@ form:
   answer:
     answer: Réponse
     is_correct: Cette réponse est correcte
+    yes: Oui
+    no: Non
   comment:
     content: Commentaire
     save: Enregistrer
