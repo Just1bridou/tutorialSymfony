@@ -25,3 +25,6 @@ Puis lancer la génération automatique des variables dans les fichiers de tradu
 
 ## Sources
 - Traduction: [Nouvelle-Techno: Créer un site multilingue avec Symfony 4](https://nouvelle-techno.fr/actualites/live-coding-creer-un-site-multilingue-avec-symfony-4)
+
+## Heruku
+L'application est déployée sur Heroku : https://howtotutorial.herokuapp.com/
